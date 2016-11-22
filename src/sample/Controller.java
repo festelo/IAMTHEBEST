@@ -61,7 +61,7 @@ public class Controller implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Bad login");
         alert.setHeaderText("Error");
-        alert.setContentText("Context");
+        alert.setContentText("Bad login or password");
 
         alert.showAndWait();
     }
