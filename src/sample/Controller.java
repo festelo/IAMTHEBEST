@@ -1,10 +1,12 @@
 package sample;
-import javafx.stage.Stage;
+import javafx.scene.Group;
+import javafx.scene.control.Alert;
 import mainApp.*;
 
+import javafx.stage.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-
+import javafx.scene.Scene;
 import javafx.event.ActionEvent;
 
 import javafx.scene.control.Button;
@@ -50,11 +52,20 @@ public class Controller implements Initializable {
             map.put(log, pass);
         }
         if( map.get(LoginTEXT.getText()) != null && map.get(LoginTEXT.getText()).equals(PasswText.getText())) {
-            btn.setText("JOINED");
             startMainWindow();
         }
-        else btn.setText("NO");
+        else showDialog();
     }
+
+    private void showDialog() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Bad login");
+        alert.setHeaderText("Error");
+        alert.setContentText("Context");
+
+        alert.showAndWait();
+    }
+
 
     private void startMainWindow() throws Exception {
         new MainApp(STAGE);
