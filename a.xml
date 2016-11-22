@@ -1,0 +1,32 @@
+﻿<XML> 
+	<GlobalSlovare>
+		<Word>
+			<Original/>
+			<Translates>
+				<Translate/>
+				<Translate/>
+			</Translates>
+		</Word>
+	</GlobalSlovare>
+	
+	<ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
+		<Learned> 
+			<Word>
+				<Original>Say1</Original>
+				<Translates>
+					<Translate>T1</Translate>
+					<Translate>S1</Translate>
+				</Translates>
+			</Word>
+		</Learned>
+		<InLearning> 
+			<Word>
+				<Original>Say1</Original>
+				<Translates>
+					<Translate>T1</Translate>
+					<Translate>S1</Translate>
+				</Translates>
+			</Word>
+		</InLearning>
+	</ACCOUNT> 
+</XML>
