@@ -12,13 +12,27 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.w3c.dom.*;
+import sun.security.util.Password;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import java.net.URL;
 import java.util.*;
 
+
 public class Controller implements Initializable {
+
+    public class mapData
+    {
+        public String password;
+        public Integer id;
+        public mapData(String password, int id)
+        {
+            this.id = id;
+            this.password = password;
+        }
+    }
 
     @FXML
     public static Stage STAGE;
@@ -45,14 +59,15 @@ public class Controller implements Initializable {
 
         Document document = documentBuilder.parse("a.xml");
         NodeList nodes = document.getElementsByTagName("ACCOUNT");
-        Map<String, String> map = new HashMap<>();
+        Map<String, mapData> map = new HashMap<>();
         for (int i = 0; i<nodes.getLength(); i++) {
             String log = nodes.item(i).getAttributes().getNamedItem("Login").getNodeValue();
             String pass = nodes.item(i).getAttributes().getNamedItem("Pass").getNodeValue();
-            map.put(log, pass);
+            map.put(log, new mapData(pass, i));
         }
-        if( map.get(LoginTEXT.getText()) != null && map.get(LoginTEXT.getText()).equals(PasswText.getText())) {
-            startMainWindow();
+        String login = LoginTEXT.getText();
+        if( map.get(login) != null && map.get(login).password.equals(PasswText.getText())) {
+            startMainWindow(nodes.item(map.get(login).id));
         }
         else showDialog();
     }
@@ -67,7 +82,7 @@ public class Controller implements Initializable {
     }
 
 
-    private void startMainWindow() throws Exception {
-        new MainApp(STAGE);
+    private void startMainWindow(Node DataNode) throws Exception {
+        new MainApp(STAGE, DataNode);
     }
 }
