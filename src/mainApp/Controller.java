@@ -19,15 +19,6 @@ import java.util.*;
 
 public class Controller implements Initializable {
 
-    @FXML
-    private Button btn;
-
-    @FXML
-    private TextField PasswText;
-
-    @FXML
-    private TextField LoginTEXT;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
