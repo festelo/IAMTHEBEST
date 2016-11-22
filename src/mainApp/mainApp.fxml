@@ -19,7 +19,7 @@
                         <Insets right="5.0" />
                     </HBox.margin>
                 </Button>
-                <Label text="Ivan Ivanov">
+                <Label text="Ivan Ivanov Ivanovich">
                     <HBox.margin>
                         <Insets />
                     </HBox.margin>
