@@ -1,16 +1,16 @@
-﻿<XML> 
-	<GlobalDictionary>
-		<Word Original="Say">
-			<Translate>Говорить</Translate>
-			<Translate>Слово</Translate>
-		</Word>
-		<Word Original="House">
-			<Translate>Дом</Translate>
-			<Translate>Здание</Translate>
-		</Word>
-		<Word Original="Apple">
-			<Translate>Яблоко</Translate>
-		</Word>
+﻿<XML>
+    <GlobalDictionary>
+        <Word Original="Say">
+            <Translate>Говорить</Translate>
+            <Translate>Слово</Translate>
+        </Word>
+        <Word Original="House">
+            <Translate>Дом</Translate>
+            <Translate>Здание</Translate>
+        </Word>
+        <Word Original="Apple">
+            <Translate>Яблоко</Translate>
+        </Word>
         <Word Original="Hi">
             <Translate>Привет</Translate>
         </Word>
@@ -52,14 +52,14 @@
             <Translate>Наверх</Translate>
             <Translate>Над</Translate>
         </Word>
-	</GlobalDictionary>
-	
-	<ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
-		<Learned>
-			<Word>Say</Word>
-		</Learned>
-		<InLearning> 
-			<Word>Apple</Word>
-		</InLearning>
-	</ACCOUNT> 
+    </GlobalDictionary>
+
+    <ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
+        <Learned>
+            <Word>Say</Word>
+        </Learned>
+        <InLearning>
+            <Word>Apple</Word>
+        </InLearning>
+    </ACCOUNT>
 </XML>
