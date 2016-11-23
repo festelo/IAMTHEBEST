@@ -15,9 +15,6 @@ import java.util.Map;
 
 public class MainApp {
     public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
-        Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
-        primaryStageMain.setTitle("Learn English");
-        primaryStageMain.setScene(new Scene(rootMain));
 
         NodeList nodeList = DictionaryNode.getChildNodes();
         for (int i = 0; i<nodeList.getLength(); i++)
@@ -74,6 +71,8 @@ public class MainApp {
                 }
             }
         }
-        System.out.print("123");
+        Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
+        primaryStageMain.setTitle("Learn English");
+        primaryStageMain.setScene(new Scene(rootMain));
     }
 }

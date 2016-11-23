@@ -7,6 +7,7 @@ public class AccountData {
     public String FirstName;
     public String LastName;
     public List<String> Learned = new ArrayList<>();
+    public List<String> UnLearned = new ArrayList<>();
     public List<String> InLearning = new ArrayList<>();
 }
 
