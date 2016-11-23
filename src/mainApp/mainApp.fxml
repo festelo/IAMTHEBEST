@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainApp.Controller">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60"
+fx:controller="mainApp.Controller">
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" prefWidth="200.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" prefWidth="200.0" />
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.33" prefWidth="200.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints maxHeight="129.0" minHeight="0.0" percentHeight="5.0" prefHeight="18.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="32.0" minHeight="-Infinity" percentHeight="5.0" prefHeight="25.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="366.0" minHeight="10.0" percentHeight="90.0" prefHeight="356.0" vgrow="SOMETIMES" />
+    </rowConstraints>
     <children>
-        <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="14.0" maxWidth="588.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0">
-            <children>
-                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="387.0" text="Testing" onAction="#clickTesting" />
-                <Button layoutX="398.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Settings" onAction="#clickSetting" />
-            </children>
-        </HBox>
-        <Label layoutX="251.0" layoutY="39.0" prefHeight="17.0" prefWidth="99.0" text="Изучаемые слова" />
-        <Label layoutX="442.0" layoutY="39.0" prefHeight="17.0" prefWidth="111.0" text="Неизученные слова" />
-        <Label layoutX="54.0" layoutY="39.0" prefHeight="17.0" prefWidth="100.0" text="Выученные слова" />
-        <TableView fx:id="LearnedTable" layoutX="6.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0">
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="6700.0" text="TESTING" GridPane.columnSpan="2" />
+        <TableView fx:id="LearnedTable" prefHeight="200.0" GridPane.rowIndex="2">
             <columns>
-                <TableColumn fx:id="LearnedTableWord" prefWidth="49.0" text="Слово" />
-                <TableColumn fx:id="LearnedTableTranslate" prefWidth="147.0" text="Перевод" />
+                <TableColumn fx:id="LearnedTableWord" prefWidth="75.0" text="Word" />
+                <TableColumn fx:id="LearnedTableTranslate" prefWidth="124.0" text="Translates" />
             </columns>
         </TableView>
-        <TableView fx:id="UnLearnedTable" layoutX="399.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0">
+        <TableView fx:id="InLearningTable" prefHeight="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <columns>
-                <TableColumn fx:id="UnLearnedTableWord" prefWidth="49.0" text="Слово" />
-                <TableColumn fx:id="UnLearnedTableTranslate" prefWidth="147.0" text="Перевод" />
+                <TableColumn fx:id="InLearningTableWord" prefWidth="75.0" text="Word" />
+                <TableColumn fx:id="InLearningTableTranslate" prefWidth="124.0" text="Translates" />
             </columns>
         </TableView>
-      <TableView fx:id="InLearningTable" layoutX="209.0" layoutY="56.0" prefHeight="340.0" prefWidth="184.0">
-        <columns>
-          <TableColumn fx:id="InLearningTableWord" prefWidth="49.0" text="Слово" />
-          <TableColumn fx:id="InLearningTableTranslate" prefWidth="147.0" text="Перевод" />
-        </columns>
-      </TableView>
+        <TableView fx:id="UnLearnedTable" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <columns>
+                <TableColumn fx:id="UnLearnedTableWord" prefWidth="75.0" text="Word" />
+                <TableColumn fx:id="UnLearnedTableTranslate" prefWidth="124.0" text="Translates" />
+            </columns>
+        </TableView>
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="3350.0" text="Settings" GridPane.columnIndex="2" />
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learned" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learning" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Unlearned" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
     </children>
-</AnchorPane>
+    <padding>
+        <Insets top="5.0" />
+    </padding>
+</GridPane>

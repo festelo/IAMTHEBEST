@@ -11,6 +11,47 @@
 		<Word Original="Apple">
 			<Translate>Яблоко</Translate>
 		</Word>
+        <Word Original="Hi">
+            <Translate>Привет</Translate>
+        </Word>
+        <Word Original="Hello">
+            <Translate>Привет</Translate>
+            <Translate>Здравствуйте</Translate>
+        </Word>
+        <Word Original="Sorry">
+            <Translate>Извините</Translate>
+        </Word>
+        <Word Original="Please">
+            <Translate>Пожалуйста</Translate>
+            <Translate>Прошу</Translate>
+        </Word>
+        <Word Original="Thank You">
+            <Translate>Спасибо</Translate>
+        </Word>
+        <Word Original="Man">
+            <Translate>Человек</Translate>
+            <Translate>Мужчина</Translate>
+        </Word>
+        <Word Original="Woman">
+            <Translate>Женщина</Translate>
+            <Translate>Женственность</Translate>
+        </Word>
+        <Word Original="Ability">
+            <Translate>Способность</Translate>
+            <Translate>Умение</Translate>
+        </Word>
+        <Word Original="Able">
+            <Translate>Способный</Translate>
+        </Word>
+        <Word Original="About">
+            <Translate>Насчет</Translate>
+            <Translate>Повсюду</Translate>
+        </Word>
+        <Word Original="Above">
+            <Translate>Вверху</Translate>
+            <Translate>Наверх</Translate>
+            <Translate>Над</Translate>
+        </Word>
 	</GlobalDictionary>
 	
 	<ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
