@@ -18,7 +18,7 @@ import java.net.URL;
 import java.util.*;
 
 public class Controller implements Initializable {
-
+    static AccountData Data;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

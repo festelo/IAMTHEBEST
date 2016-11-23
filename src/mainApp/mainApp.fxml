@@ -8,9 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import Test1.*?>
-<?import Test2.*?>
-<?import Test3.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1">
     <children>
@@ -21,9 +18,9 @@
                         <Insets />
                     </HBox.margin>
                 </Label>
-                <Button fx:id="btnTest1" onAction="#clickOpenTest1" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test1" />
-                <Button fx:id="btnTest2" onAction="#clickOpenTest2" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test2" />
-                <Button fx:id="btnTest3" onAction="#clickOpenTest3" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test3" />
+                <Button fx:id="btnTest1" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test1" />
+                <Button fx:id="btnTest2" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test2" />
+                <Button fx:id="btnTest3" mnemonicParsing="false" prefHeight="25.0" prefWidth="188.0" text="Test3" />
             </children>
         </HBox>
         <Label layoutX="200.0" layoutY="39.0" text="Изучаемые слова" />

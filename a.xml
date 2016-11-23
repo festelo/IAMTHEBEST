@@ -11,21 +11,15 @@
 	
 	<ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
 		<Learned> 
-			<Word>
-				<Original>Say1</Original>
-				<Translates>
-					<Translate>T1</Translate>
-					<Translate>S1</Translate>
-				</Translates>
+			<Word Original="Word1">
+				<Translate>T1</Translate>
+				<Translate>S1</Translate>
 			</Word>
 		</Learned>
 		<InLearning> 
-			<Word>
-				<Original>Say1</Original>
-				<Translates>
-					<Translate>T1</Translate>
-					<Translate>S1</Translate>
-				</Translates>
+			<Word Original="Say1">
+				<Translate>T1</Translate>
+				<Translate>S1</Translate>
 			</Word>
 		</InLearning>
 	</ACCOUNT> 
