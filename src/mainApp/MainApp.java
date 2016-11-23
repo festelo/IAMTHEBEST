@@ -8,6 +8,11 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MainApp {
     public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
         Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
@@ -19,7 +24,17 @@ public class MainApp {
         {
             if(nodeList.item(i).getNodeName().equals("Word"))
             {
-                Controller.WordBase.add(parseWord(nodeList.item(i)));
+                Node node = nodeList.item(i);
+                String wordName = node.getAttributes().getNamedItem("Original").getNodeValue();
+                List<String> wordTranslates = new ArrayList<>();
+                NodeList subsubNodeList = node.getChildNodes();
+                for (int a = 0; a< subsubNodeList.getLength(); a++)
+                    if(subsubNodeList.item(a).getNodeName().equals("Translate"))
+                    {
+                        String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
+                        wordTranslates.add(value);
+                    }
+                Controller.WordBase.put(wordName, wordTranslates);
             }
         }
 
@@ -40,7 +55,7 @@ public class MainApp {
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            Controller.ACCOUNT.Learned.add(parseWord(subNodeList.item(j)));
+                            Controller.ACCOUNT.Learned.add(subNodeList.item(j).getFirstChild().getNodeValue());
                         }
                     }
                     break;
@@ -52,7 +67,7 @@ public class MainApp {
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            Controller.ACCOUNT.InLearning.add(parseWord(subNodeList.item(j)));
+                            Controller.ACCOUNT.InLearning.add(subNodeList.item(j).getFirstChild().getNodeValue());
                         }
                     }
                     break;
@@ -60,19 +75,5 @@ public class MainApp {
             }
         }
         System.out.print("123");
-    }
-
-    public AccountData.Word parseWord(Node node)
-    {
-        AccountData.Word word = new AccountData.Word();
-        word.original = node.getAttributes().getNamedItem("Original").getNodeValue();
-        NodeList subsubNodeList = node.getChildNodes();
-        for (int a = 0; a< subsubNodeList.getLength(); a++)
-            if(subsubNodeList.item(a).getNodeName().equals("Translate"))
-            {
-                String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
-                word.translates.add(value);
-            }
-        return word;
     }
 }

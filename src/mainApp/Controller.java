@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Controller implements Initializable {
     static AccountData ACCOUNT;
-    static List<AccountData.Word> WordBase = new ArrayList<>();
+    static Map<String, List<String>> WordBase = new HashMap<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

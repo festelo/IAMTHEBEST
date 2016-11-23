@@ -1,23 +1,24 @@
 ﻿<XML> 
 	<GlobalDictionary>
-		<Word Original="Say1">
-			<Translate>T1</Translate>
-			<Translate>S1</Translate>
+		<Word Original="Say">
+			<Translate>Говорить</Translate>
+			<Translate>Слово</Translate>
+		</Word>
+		<Word Original="House">
+			<Translate>Дом</Translate>
+			<Translate>Здание</Translate>
+		</Word>
+		<Word Original="Apple">
+			<Translate>Яблоко</Translate>
 		</Word>
 	</GlobalDictionary>
 	
 	<ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
-		<Learned> 
-			<Word Original="Word1">
-				<Translate>T1</Translate>
-				<Translate>S1</Translate>
-			</Word>
+		<Learned>
+			<Word>Say</Word>
 		</Learned>
 		<InLearning> 
-			<Word Original="Say1">
-				<Translate>T1</Translate>
-				<Translate>S1</Translate>
-			</Word>
+			<Word>Apple</Word>
 		</InLearning>
 	</ACCOUNT> 
 </XML>
