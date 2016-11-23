@@ -1,19 +1,15 @@
 package sample;
-import javafx.scene.Group;
-import javafx.scene.control.Alert;
 import mainApp.*;
 
 import javafx.stage.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.w3c.dom.*;
-import sun.security.util.Password;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -41,10 +37,13 @@ public class Controller implements Initializable {
     private Button btn;
 
     @FXML
-    private TextField PasswText;
+    private TextField NameText;
 
     @FXML
-    private TextField LoginTEXT;
+    private TextField SurnameText;
+
+    @FXML
+    private TextField PasswordText;
 
 
     @Override
@@ -54,6 +53,7 @@ public class Controller implements Initializable {
     }
 
     public void click(ActionEvent actionEvent) throws Exception {
+        System.out.println("clicked");
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
         Document document = documentBuilder.parse("a.xml");
@@ -64,10 +64,9 @@ public class Controller implements Initializable {
             String pass = nodes.item(i).getAttributes().getNamedItem("Pass").getNodeValue();
             map.put(log, new mapData(pass, i));
         }
-        String login = LoginTEXT.getText();
-        if( map.get(login) != null && map.get(login).password.equals(PasswText.getText())) {
+        String login = NameText.getText() + SurnameText.getText();
+        if( map.get(login) != null && map.get(login).password.equals(PasswordText.getText()))   
             new MainApp(STAGE, nodes.item(map.get(login).id), document.getElementsByTagName("GlobalDictionary").item(0));
-        }
         else showDialog();
     }
 

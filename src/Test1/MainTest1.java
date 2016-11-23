@@ -8,7 +8,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static sample.Controller.STAGE;
+
 public class MainTest1 extends Application {
+
+    public MainTest1(Stage stage) {
+
+    }
 
     public static void main(String[] args) {
         launch(args);

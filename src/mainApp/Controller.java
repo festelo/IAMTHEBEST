@@ -1,5 +1,6 @@
 package mainApp;
 
+import Test1.MainTest1;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
@@ -12,6 +13,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.util.*;
+
+import static sample.Controller.STAGE;
 
 
 public class Controller implements Initializable {
@@ -96,16 +99,20 @@ public class Controller implements Initializable {
 
     public List<String> GETUnlearned()
     {
-        List<String> retunStr = new ArrayList<>();
+        List<String> returnStr = new ArrayList<>();
         for(String s : WordBase.keySet())
         {
             if(ACCOUNT.Learned.contains(s) || ACCOUNT.InLearning.contains(s)) continue;
-            retunStr.add(s);
+            returnStr.add(s);
         }
-        return  retunStr;
+        return  returnStr;
     }
 
-    public void click(ActionEvent actionEvent) {
+    public void clickTesting(ActionEvent actionEvent) {
+        System.out.println("clickTesting");
+    }
 
+    public void clickSetting() {
+        System.out.println("clickSetting");
     }
 }
