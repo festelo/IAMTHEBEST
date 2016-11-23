@@ -22,7 +22,7 @@ fx:controller="mainApp.Controller">
         <RowConstraints maxHeight="366.0" minHeight="10.0" percentHeight="90.0" prefHeight="356.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="6700.0" text="TESTING" GridPane.columnSpan="2" />
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="6700.0" text="TESTING" GridPane.columnSpan="2" onAction="#clickTesting"/>
         <TableView fx:id="LearnedTable" prefHeight="200.0" GridPane.rowIndex="2">
             <columns>
                 <TableColumn fx:id="LearnedTableWord" prefWidth="75.0" text="Word" />
@@ -41,7 +41,7 @@ fx:controller="mainApp.Controller">
                 <TableColumn fx:id="UnLearnedTableTranslate" prefWidth="124.0" text="Translates" />
             </columns>
         </TableView>
-        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="3350.0" text="Settings" GridPane.columnIndex="2" />
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="3350.0" text="Settings" GridPane.columnIndex="2" onAction="#clickSetting" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learned" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learning" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Unlearned" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />

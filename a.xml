@@ -28,6 +28,134 @@
         <Word Original="Thank You">
             <Translate>Спасибо</Translate>
         </Word>
+        <Word Original="Goodbye">
+            <Translate>До свидания</Translate>
+        </Word>
+        <Word Original="Child">
+            <Translate>Ребёнок</Translate>
+        </Word>
+        <Word Original="Boy">
+            <Translate>Мальчик</Translate>
+        </Word>
+        <Word Original="Girl">
+            <Translate>Девочка</Translate>
+        </Word>
+        <Word Original="Guy">
+            <Translate>Парень</Translate>
+        </Word>
+        <Word Original="Friend">
+            <Translate>Друг</Translate>
+        </Word>
+        <Word Original="Acquaintance">
+            <Translate>Знакомый</Translate>
+            <Translate>Знакомство</Translate>
+        </Word>
+        <Word Original="Neighbor">
+            <Translate>Сосед</Translate>
+        </Word>
+        <Word Original="Guest">
+            <Translate>Гость</Translate>
+            <Translate>Начальник</Translate>
+            <Translate>Главный</Translate>
+            <Translate>Вождь</Translate>
+        </Word>
+        <Word Original="Boss">
+            <Translate>Босс</Translate>
+        </Word>
+        <Word Original="Competitor">
+            <Translate>Конкурент</Translate>
+            <Translate>Соперник</Translate>
+        </Word>
+        <Word Original="Chief">
+            <Translate>Шеф</Translate>
+        </Word>
+        <Word Original="Client">
+            <Translate>Клиент</Translate>
+        </Word>
+        <Word Original="Colleague">
+            <Translate>Коллега</Translate>
+        </Word>
+        <Word Original="Parents">
+            <Translate>Родители</Translate>
+        </Word>
+        <Word Original="Father">
+            <Translate>Отец</Translate>
+        </Word>
+        <Word Original="Daddy">
+            <Translate>Папа</Translate>
+        </Word>
+        <Word Original="Mother">
+            <Translate>Мать</Translate>
+        </Word>
+        <Word Original="Mummy">
+            <Translate>Мама</Translate>
+        </Word>
+        <Word Original="Husband">
+            <Translate>Муж</Translate>
+        </Word>
+        <Word Original="Wife">
+            <Translate>Жена</Translate>
+        </Word>
+        <Word Original="Son">
+            <Translate>Сын</Translate>
+        </Word>
+        <Word Original="Daughter">
+            <Translate>Дочь</Translate>
+        </Word>
+        <Word Original="Brother">
+            <Translate>Брат</Translate>
+        </Word>
+        <Word Original="Sister">
+            <Translate>Сестра</Translate>
+        </Word>
+        <Word Original="Grandfather">
+            <Translate>Дед</Translate>
+        </Word>
+        <Word Original="Father-is-law">
+            <Translate>Тесть</Translate>
+            <Translate>Свёкор</Translate>
+        </Word>
+        <Word Original="Uncle">
+            <Translate>Дядя</Translate>
+        </Word>
+        <Word Original="Aunt">
+            <Translate>Тётя</Translate>
+        </Word>
+        <Word Original="Cousin">
+            <Translate>Двоюрдный брат</Translate>
+            <Translate>Двоюродная сестра</Translate>
+        </Word>
+        <Word Original="Nephew">
+            <Translate>Племянник</Translate>
+        </Word>
+        <Word Original="Niece">
+            <Translate>Племянница</Translate>
+        </Word>
+        <Word Original="Businessman">
+            <Translate>Бизнесмен</Translate>
+        </Word>
+        <Word Original="Teacher">
+            <Translate>Учитель</Translate>
+        </Word>
+        <Word Original="Driver">
+            <Translate></Translate>
+        </Word>
+        <Word Original="Worker">
+            <Translate>Работник</Translate>
+        </Word>
+        <Word Original="Engineer">
+            <Translate>Инженер</Translate>
+        </Word>
+        <Word Original="Doctor">
+            <Translate>Врач</Translate>
+        </Word>
+        <Word Original="Lawyer">
+            <Translate>Адвокат</Translate>
+            <Translate>Юрист</Translate>
+        </Word>
+        <Word Original="Journalist">
+            <Translate>Журналист</Translate>
+        </Word>
         <Word Original="Man">
             <Translate>Человек</Translate>
             <Translate>Мужчина</Translate>

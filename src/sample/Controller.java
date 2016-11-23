@@ -68,7 +68,7 @@ public class Controller implements Initializable {
     }
 
     private void showDialog() {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Bad login");
         alert.setHeaderText("Error");
         alert.setContentText("Bad login or password");

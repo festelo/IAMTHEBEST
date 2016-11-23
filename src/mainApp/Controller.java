@@ -15,7 +15,7 @@ import java.net.URL;
 import java.util.*;
 
 import static sample.Controller.STAGE;
-
+import Test1.*;
 
 public class Controller implements Initializable {
 
@@ -109,7 +109,8 @@ public class Controller implements Initializable {
     }
 
     public void clickTesting(ActionEvent actionEvent) {
-        System.out.println("clickTesting");
+        System.out.println("clickedTesting");
+        new MainTest1(STAGE);
     }
 
     public void clickSetting() {

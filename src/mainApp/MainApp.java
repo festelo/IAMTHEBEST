@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class MainApp {
     public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
-
         NodeList nodeList = DictionaryNode.getChildNodes();
         for (int i = 0; i<nodeList.getLength(); i++)
         {
