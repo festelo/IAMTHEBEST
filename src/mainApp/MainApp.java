@@ -9,17 +9,26 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class MainApp {
-    public MainApp(Stage primaryStageMain, Node DataNode) throws Exception{
+    public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
         Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
         primaryStageMain.setTitle("Learn English");
         primaryStageMain.setScene(new Scene(rootMain));
 
-        NamedNodeMap nmap = DataNode.getAttributes();
-        Controller.Data = new AccountData();
-        Controller.Data.FirstName = nmap.getNamedItem("FirstName").getNodeValue();
-        Controller.Data.LastName = nmap.getNamedItem("LastName").getNodeValue();
+        NodeList nodeList = DictionaryNode.getChildNodes();
+        for (int i = 0; i<nodeList.getLength(); i++)
+        {
+            if(nodeList.item(i).getNodeName().equals("Word"))
+            {
+                Controller.WordBase.add(parseWord(nodeList.item(i)));
+            }
+        }
 
-        NodeList nodeList = DataNode.getChildNodes();
+        NamedNodeMap nmap = DataNode.getAttributes();
+        Controller.ACCOUNT = new AccountData();
+        Controller.ACCOUNT.FirstName = nmap.getNamedItem("FirstName").getNodeValue();
+        Controller.ACCOUNT.LastName = nmap.getNamedItem("LastName").getNodeValue();
+
+        nodeList = DataNode.getChildNodes();
         for(int i = 0; i<nodeList.getLength(); i++)
         {
             switch (nodeList.item(i).getNodeName())
@@ -31,16 +40,7 @@ public class MainApp {
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            AccountData.Word word = new AccountData.Word();
-                            word.original = subNodeList.item(j).getAttributes().getNamedItem("Original").getNodeValue();
-                            NodeList subsubNodeList = subNodeList.item(j).getChildNodes();
-                            for (int a = 0; a< subsubNodeList.getLength(); a++)
-                                if(subsubNodeList.item(a).getNodeName().equals("Translate"))
-                                {
-                                    String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
-                                    word.translates.add(value);
-                                }
-                            Controller.Data.Learned.add(word);
+                            Controller.ACCOUNT.Learned.add(parseWord(subNodeList.item(j)));
                         }
                     }
                     break;
@@ -52,16 +52,7 @@ public class MainApp {
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            AccountData.Word word = new AccountData.Word();
-                            word.original = subNodeList.item(j).getAttributes().getNamedItem("Original").getNodeValue();
-                            NodeList subsubNodeList = subNodeList.item(j).getChildNodes();
-                            for (int a = 0; a< subsubNodeList.getLength(); a++)
-                                if(subsubNodeList.item(a).getNodeName().equals("Translate"))
-                                {
-                                    String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
-                                    word.translates.add(value);
-                                }
-                            Controller.Data.InLearning.add(word);
+                            Controller.ACCOUNT.InLearning.add(parseWord(subNodeList.item(j)));
                         }
                     }
                     break;
@@ -69,5 +60,19 @@ public class MainApp {
             }
         }
         System.out.print("123");
+    }
+
+    public AccountData.Word parseWord(Node node)
+    {
+        AccountData.Word word = new AccountData.Word();
+        word.original = node.getAttributes().getNamedItem("Original").getNodeValue();
+        NodeList subsubNodeList = node.getChildNodes();
+        for (int a = 0; a< subsubNodeList.getLength(); a++)
+            if(subsubNodeList.item(a).getNodeName().equals("Translate"))
+            {
+                String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
+                word.translates.add(value);
+            }
+        return word;
     }
 }

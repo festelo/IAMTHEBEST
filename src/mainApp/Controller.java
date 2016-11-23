@@ -18,7 +18,8 @@ import java.net.URL;
 import java.util.*;
 
 public class Controller implements Initializable {
-    static AccountData Data;
+    static AccountData ACCOUNT;
+    static List<AccountData.Word> WordBase = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

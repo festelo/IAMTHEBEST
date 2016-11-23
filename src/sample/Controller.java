@@ -66,7 +66,7 @@ public class Controller implements Initializable {
         }
         String login = LoginTEXT.getText();
         if( map.get(login) != null && map.get(login).password.equals(PasswText.getText())) {
-            startMainWindow(nodes.item(map.get(login).id));
+            new MainApp(STAGE, nodes.item(map.get(login).id), document.getElementsByTagName("GlobalDictionary").item(0));
         }
         else showDialog();
     }
@@ -78,10 +78,5 @@ public class Controller implements Initializable {
         alert.setContentText("Bad login or password");
 
         alert.showAndWait();
-    }
-
-
-    private void startMainWindow(Node DataNode) throws Exception {
-        new MainApp(STAGE, DataNode);
     }
 }
