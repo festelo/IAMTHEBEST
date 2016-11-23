@@ -3,9 +3,6 @@ package mainApp;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by me on 23.11.2016.
- */
 public class AccountData {
     public static class Word
     {
