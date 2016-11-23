@@ -75,10 +75,5 @@ public class MainApp {
         Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
         primaryStageMain.setTitle("Learn English");
         primaryStageMain.setScene(new Scene(rootMain));
-        parse(DataNode, DictionaryNode);
-    }
-
-    public void parse(Node DataNode, Node DictionaryNode) {
-
     }
 }
