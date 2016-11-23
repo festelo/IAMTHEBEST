@@ -28,6 +28,8 @@ public class Controller implements Initializable {
                     String TEMPString = "";
                     for(String a: WordBase.get(s))
                         TEMPString += a + ", ";
+                    if(TEMPString != "")
+                        TEMPString = TEMPString.substring(0, TEMPString.length()-2);
                     toReturn.add(new TableData(s, TEMPString));
                 }
                 return toReturn;
