@@ -7,34 +7,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="mainApp.Controller">
     <children>
         <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="14.0" maxWidth="588.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0">
             <children>
-                <Button fx:id="btnTest1" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test1" />
-                <Button fx:id="btnTest2" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test2" />
-                <Button fx:id="btnTest3" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test3" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test1" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test2" />
+                <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Test3" />
             </children>
         </HBox>
         <Label layoutX="251.0" layoutY="39.0" prefHeight="17.0" prefWidth="99.0" text="Изучаемые слова" />
         <Label layoutX="442.0" layoutY="39.0" prefHeight="17.0" prefWidth="111.0" text="Неизученные слова" />
         <Label layoutX="54.0" layoutY="39.0" prefHeight="17.0" prefWidth="100.0" text="Выученные слова" />
-        <TableView layoutX="6.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0">
+        <TableView layoutX="6.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0" fx:id="LearnedTable">
             <columns>
-                <TableColumn prefWidth="49.0" text="Слово" />
-                <TableColumn prefWidth="147.0" text="Перевод" />
+                <TableColumn prefWidth="49.0" text="Слово" fx:id="LearnedTableWord"/>
+                <TableColumn prefWidth="147.0" text="Перевод" fx:id="LearnedTableTranslate"/>
             </columns>
         </TableView>
-        <TableView layoutX="399.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0">
+        <TableView layoutX="399.0" layoutY="56.0" prefHeight="340.0" prefWidth="196.0"  fx:id="UnLearnedTable">
             <columns>
-                <TableColumn prefWidth="49.0" text="Слово" />
-                <TableColumn prefWidth="147.0" text="Перевод" />
+                <TableColumn prefWidth="49.0" text="Слово" fx:id="UnLearnedTableWord"/>
+                <TableColumn prefWidth="147.0" text="Перевод" fx:id="UnLearnedTableTranslate" />
             </columns>
         </TableView>
-      <TableView layoutX="209.0" layoutY="56.0" prefHeight="340.0" prefWidth="184.0">
+      <TableView layoutX="209.0" layoutY="56.0" prefHeight="340.0" prefWidth="184.0" fx:id="InLearningTable">
         <columns>
-          <TableColumn prefWidth="49.0" text="Слово" />
-          <TableColumn prefWidth="147.0" text="Перевод" />
+          <TableColumn prefWidth="49.0" text="Слово"  fx:id="InLearningTableWord"/>
+          <TableColumn prefWidth="147.0" text="Перевод" fx:id="InLearningTableTranslate"/>
         </columns>
       </TableView>
     </children>
