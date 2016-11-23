@@ -90,6 +90,19 @@ public class Controller implements Initializable {
 
         InLearningTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.InLearning));
         LearnedTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.Learned));
+        ACCOUNT.UnLearned = GETUnlearned();
+        UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.UnLearned));
+    }
+
+    public List<String> GETUnlearned()
+    {
+        List<String> retunStr = new ArrayList<>();
+        for(String s : WordBase.keySet())
+        {
+            if(ACCOUNT.Learned.contains(s) || ACCOUNT.InLearning.contains(s)) continue;
+            retunStr.add(s);
+        }
+        return  retunStr;
     }
 
     public void click(ActionEvent actionEvent) {
