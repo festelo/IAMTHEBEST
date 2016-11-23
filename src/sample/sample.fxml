@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.control.PasswordField?>
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.112-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <columnConstraints>
         <ColumnConstraints maxWidth="0.0" minWidth="0.0" prefWidth="0.0" />
@@ -23,7 +24,7 @@
         <Label text="Login:" GridPane.columnIndex="1" />
         <Label text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="1" />
         <TextField GridPane.columnIndex="2" fx:id="LoginTEXT"/>
-        <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="PasswText"/>
+        <PasswordField GridPane.columnIndex="2" GridPane.rowIndex="1" fx:id="PasswText"></PasswordField>
         <Button fx:id="btn" mnemonicParsing="false" onAction="#click" prefHeight="25.0" prefWidth="188.0" text="Join" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
     </children>
 </GridPane>
