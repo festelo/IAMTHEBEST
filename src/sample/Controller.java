@@ -37,10 +37,7 @@ public class Controller implements Initializable {
     private Button btn;
 
     @FXML
-    private TextField NameText;
-
-    @FXML
-    private TextField SurnameText;
+    private TextField LoginText;
 
     @FXML
     private TextField PasswordText;
@@ -64,7 +61,7 @@ public class Controller implements Initializable {
             String pass = nodes.item(i).getAttributes().getNamedItem("Pass").getNodeValue();
             map.put(log, new mapData(pass, i));
         }
-        String login = NameText.getText() + SurnameText.getText();
+        String login = LoginText.getText();
         if( map.get(login) != null && map.get(login).password.equals(PasswordText.getText()))   
             new MainApp(STAGE, nodes.item(map.get(login).id), document.getElementsByTagName("GlobalDictionary").item(0));
         else showDialog();
