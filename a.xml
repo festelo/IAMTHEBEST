@@ -138,7 +138,7 @@
             <Translate>Учитель</Translate>
         </Word>
         <Word Original="Driver">
-            <Translate></Translate>
+            <Translate>Водитель</Translate>
         </Word>
         <Word Original="Worker">
             <Translate>Работник</Translate>
@@ -155,6 +155,33 @@
         </Word>
         <Word Original="Journalist">
             <Translate>Журналист</Translate>
+        </Word>
+        <Word Original="Nurse">
+            <Translate>Медсестра</Translate>
+        </Word>
+        <Word Original="Shop assistant">
+            <Translate>Продавец</Translate>
+        </Word>
+        <Word Original="Waiter">
+            <Translate>Официант</Translate>
+        </Word>
+        <Word Original="Accountant">
+            <Translate>Бухгалтер</Translate>
+        </Word>
+        <Word Original="Artist">
+            <Translate>Художник</Translate>
+        </Word>
+        <Word Original="Musician">
+            <Translate>Музыкант</Translate>
+        </Word>
+        <Word Original="Actor">
+            <Translate>Актёр</Translate>
+        </Word>
+        <Word Original="Student">
+            <Translate>Студент</Translate>
+        </Word>
+        <Word Original="Pupil">
+            <Translate>Ученик</Translate>
         </Word>
         <Word Original="Man">
             <Translate>Человек</Translate>
