@@ -10,14 +10,14 @@ import java.io.IOException;
 
 public class MainTest2 extends Application {
 
-    public MainTest2(Stage primaryStageMain) throws IOException{
+    public MainTest2(Stage primaryStageMain, Stage StageTest) throws IOException{
         primaryStageMain.hide();
-        Stage StageTest2 = new Stage();
         Parent rootMain = FXMLLoader.load(getClass().getResource("test2.fxml"));
-        StageTest2.setTitle("Second Test");
-        StageTest2.setScene(new Scene(rootMain));
-        StageTest2.setOnCloseRequest(event -> onClosing(primaryStageMain));
-        StageTest2.show();
+        StageTest.setTitle("Second Test");
+        StageTest.setScene(new Scene(rootMain));
+        StageTest.setOnCloseRequest(event -> onClosing(primaryStageMain));
+        StageTest.show();
+
     }
 
     public static void main(String[] args) {

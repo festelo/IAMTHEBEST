@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
+import static Test1.MainTest1.primaryStageMain;
 import static Test1.MainTest1.stageTest1;
 
 public class ControllerTest1 implements Initializable {
@@ -90,7 +91,8 @@ public class ControllerTest1 implements Initializable {
                 }
             }
             OkBtn.setText("Yes!");
-            new MainTest2(stageTest1);
+            MainApp.ACCOUNT.setStage(1);
+            new MainTest2(primaryStageMain, stageTest1);
         }
         else
         {

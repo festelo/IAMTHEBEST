@@ -10,9 +10,10 @@ import java.util.List;
 public class MainTest1 {
 
     public static Stage stageTest1;
+    public static Stage primaryStageMain;
 
     public MainTest1(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
-
+        this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
         ControllerTest1.Translates.addAll(Translates);
         ControllerTest1.Words.addAll(Words);

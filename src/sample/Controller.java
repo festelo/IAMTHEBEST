@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     public void click(ActionEvent actionEvent) throws Exception {
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
-        Document document = documentBuilder.parse("a.xml");
+        Document document = documentBuilder.parse(AccountData.Path);
         NodeList nodes = document.getElementsByTagName("ACCOUNT");
         Map<String, mapData> map = new HashMap<>();
         for (int i = 0; i<nodes.getLength(); i++) {
