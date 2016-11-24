@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,15 @@ import Test1.*;
 import settings.MainSettings;
 
 public class Controller implements Initializable {
+    public void testBtn(ActionEvent actionEvent) throws Exception {
+        List<String> Words = new ArrayList<>();
+        List<String> Translates = new ArrayList<>();
+        Words.add("Слово");
+        Words.add("Перевод");
+        Translates.add("Translate");
+        Translates.add("Word");
+        new MainTest1(sample.Controller.STAGE, Words, Translates);
+    }
 
     public static class TableData
     {
