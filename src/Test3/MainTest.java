@@ -8,10 +8,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainTest3 extends Application {
+public class MainTest extends Application {
 
-    public MainTest3(Stage primaryStageTest3) throws IOException {
-        Parent rootTest3 = FXMLLoader.load(getClass().getResource("test3.fxml"));
+    public MainTest(Stage primaryStageTest3) throws IOException {
+        Parent rootTest3 = FXMLLoader.load(getClass().getResource("test.fxml"));
         primaryStageTest3.setTitle("Third Test");
         primaryStageTest3.setScene(new Scene(rootTest3));
     }

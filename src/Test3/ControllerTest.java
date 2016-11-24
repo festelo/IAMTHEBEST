@@ -6,7 +6,7 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.*;
 
-public class ControllerTest3 implements Initializable {
+public class ControllerTest implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
