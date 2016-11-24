@@ -1,25 +1,17 @@
 package mainApp;
 
 import Test1.MainTest1;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+
+import static mainApp.AccountData.WordBase;
 import static mainApp.MainApp.ACCOUNT;
-import static mainApp.MainApp.WordBase;
-import static sample.Controller.STAGE;
-import Test1.*;
-import settings.MainSettings;
 
 
 public class Controller implements Initializable {
@@ -71,10 +63,10 @@ public class Controller implements Initializable {
         InLearningTableWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         InLearningTableTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
 
-        InLearningTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.InLearning));
-        LearnedTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.Learned));
+        InLearningTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.InLearning));
+        LearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.Learned));
         ACCOUNT.UnLearned = GETUnlearned();
-        UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.UnLearned));
+        UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.UnLearned));
     }
 
     public List<String> GETUnlearned()

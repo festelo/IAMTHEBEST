@@ -15,7 +15,7 @@ public class TableData
             for (String s: list)
             {
                 String TEMPString = "";
-                for(String a: MainApp.WordBase.get(s))
+                for(String a: MainApp.ACCOUNT.WordBase.get(s))
                     TEMPString += a + ", ";
                 if(TEMPString != "")
                     TEMPString = TEMPString.substring(0, TEMPString.length()-2);

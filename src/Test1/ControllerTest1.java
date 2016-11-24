@@ -79,7 +79,7 @@ public class ControllerTest1 implements Initializable {
         {
             for (TableData td : Result)
             {
-                if (!MainApp.WordBase.get(td.getWord()).contains(td.getTranslates()))
+                if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
                 {
                     OkBtn.setText("No!");
                     return;
