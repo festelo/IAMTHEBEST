@@ -31,7 +31,7 @@
                         <TableColumn prefWidth="120.0" text="Перевод" fx:id="tableViewTranslate"/>
                     </columns>
                 </TableView>
-                <Button fx:id="OkBtn" onAction="#OkClick" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="666.0" text="OK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                <Button fx:id="OkBtn" onAction="#clickOK" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="666.0" text="OK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER"  />
             </children>
         </GridPane>
     </content>

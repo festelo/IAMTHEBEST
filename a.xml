@@ -207,12 +207,24 @@
             <Translate>Наверх</Translate>
             <Translate>Над</Translate>
         </Word>
+        <Word Original="Window">
+            <Translate>Окно</Translate>
+        </Word>
+        <Word Original="Arm">
+            <Translate>Рука</Translate>
+        </Word>
     </GlobalDictionary>
 
     <ACCOUNT Login="name" Pass="pass" FirstName="Vladimir" LastName="Pavlov">
         <Learned>
+            <Word>Window</Word>
+        </Learned>
+        <Learned>
             <Word>Say</Word>
         </Learned>
+        <InLearning Stage="0">
+            <Word>Arm</Word>
+        </InLearning>
         <InLearning Stage="0">
             <Word>Apple</Word>
             <Word>Above</Word>
