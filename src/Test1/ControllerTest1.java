@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import mainApp.MainApp;
 import mainApp.TableData;
 
+import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -79,7 +80,7 @@ public class ControllerTest1 implements Initializable {
         }
     }
 
-    public void clickOK(ActionEvent actionEvent) throws IOException {
+    public void clickOK(ActionEvent actionEvent) throws IOException, TransformerException {
         if(Words.size() == 0 && Translates.size() == 0)
         {
             for (TableData td : Result)

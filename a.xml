@@ -1,4 +1,4 @@
-﻿<XML>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><XML>
     <GlobalDictionary>
         <Word Original="Say">
             <Translate>Говорить</Translate>
@@ -215,15 +215,15 @@
         </Word>
     </GlobalDictionary>
 
-    <ACCOUNT Login="name" Pass="pass" FirstName="Vladimir" LastName="Pavlov">
+    <ACCOUNT FirstName="Vladimir" LastName="Pavlov" Login="name" Pass="pass">
         <Learned>
             <Word>Window</Word>
         </Learned>
-        <InLearning Stage="0">
+        <InLearning Stage="1">
             <Word>Arm</Word>
             <Word>Apple</Word>
             <Word>Above</Word>
-            <Word>Able</Word>>
+            <Word>Able</Word>&gt;
             <Word>Woman</Word>
         </InLearning>
     </ACCOUNT>
