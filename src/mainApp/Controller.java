@@ -15,8 +15,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-
-import static mainApp.Controller.WordBase;
+import static mainApp.MainApp.ACCOUNT;
+import static mainApp.MainApp.WordBase;
 import static sample.Controller.STAGE;
 import Test1.*;
 import settings.MainSettings;
@@ -36,9 +36,6 @@ public class Controller implements Initializable {
         Collections.shuffle(Words);
         new MainTest1(sample.Controller.STAGE, Words, Translates);
     }
-
-    static AccountData ACCOUNT;
-    static Map<String, List<String>> WordBase = new HashMap<>();
 
 
     @FXML

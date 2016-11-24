@@ -5,8 +5,6 @@ import javafx.collections.ObservableList;
 
 import java.util.List;
 
-import static mainApp.Controller.WordBase;
-
 public class TableData
 {
     public static class ToTableData
@@ -17,7 +15,7 @@ public class TableData
             for (String s: list)
             {
                 String TEMPString = "";
-                for(String a: WordBase.get(s))
+                for(String a: MainApp.WordBase.get(s))
                     TEMPString += a + ", ";
                 if(TEMPString != "")
                     TEMPString = TEMPString.substring(0, TEMPString.length()-2);

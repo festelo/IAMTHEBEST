@@ -2,12 +2,14 @@ package Test1;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import mainApp.MainApp;
 import mainApp.TableData;
 
 import java.net.URL;
@@ -22,6 +24,7 @@ public class ControllerTest1 implements Initializable {
     public TableView tableView;
     public ListView<String> ListViewTranslates;
     public ListView<String> ListViewWords;
+    public Button OkBtn;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -68,6 +71,25 @@ public class ControllerTest1 implements Initializable {
                     Translates.add(td.getTranslates());
                 }
             }
+        }
+    }
+
+    public void OkClick(ActionEvent actionEvent) {
+        if(Words.size() == 0 && Translates.size() == 0)
+        {
+            for (TableData td : Result)
+            {
+                if (!MainApp.WordBase.get(td.getWord()).contains(td.getTranslates()))
+                {
+                    OkBtn.setText("No!");
+                    return;
+                }
+            }
+            OkBtn.setText("Yes!");
+        }
+        else
+        {
+            OkBtn.setText("Not all!");
         }
     }
 }

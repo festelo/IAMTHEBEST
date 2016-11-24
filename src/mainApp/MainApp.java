@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 public class MainApp {
+
+    static public AccountData ACCOUNT;
+    static public Map<String, List<String>> WordBase = new HashMap<>();
+
     public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
         NodeList nodeList = DictionaryNode.getChildNodes();
         for (int i = 0; i<nodeList.getLength(); i++)
@@ -30,14 +34,14 @@ public class MainApp {
                         String value = subsubNodeList.item(a).getFirstChild().getNodeValue();
                         wordTranslates.add(value);
                     }
-                Controller.WordBase.put(wordName, wordTranslates);
+                WordBase.put(wordName, wordTranslates);
             }
         }
 
         NamedNodeMap nmap = DataNode.getAttributes();
-        Controller.ACCOUNT = new AccountData();
-        Controller.ACCOUNT.FirstName = nmap.getNamedItem("FirstName").getNodeValue();
-        Controller.ACCOUNT.LastName = nmap.getNamedItem("LastName").getNodeValue();
+        ACCOUNT = new AccountData();
+        ACCOUNT.FirstName = nmap.getNamedItem("FirstName").getNodeValue();
+        ACCOUNT.LastName = nmap.getNamedItem("LastName").getNodeValue();
 
         nodeList = DataNode.getChildNodes();
         for(int i = 0; i<nodeList.getLength(); i++)
@@ -51,20 +55,20 @@ public class MainApp {
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            Controller.ACCOUNT.Learned.add(subNodeList.item(j).getFirstChild().getNodeValue());
+                            ACCOUNT.Learned.add(subNodeList.item(j).getFirstChild().getNodeValue());
                         }
                     }
                     break;
                 }
                 case "InLearning":
                 {
-                    Controller.ACCOUNT.LearnStage = Integer.parseInt(nodeList.item(i).getAttributes().getNamedItem("Stage").getNodeValue());
+                    ACCOUNT.LearnStage = Integer.parseInt(nodeList.item(i).getAttributes().getNamedItem("Stage").getNodeValue());
                     NodeList subNodeList = nodeList.item(i).getChildNodes();
                     for (int j = 0; j< subNodeList.getLength(); j++)
                     {
                         if (subNodeList.item(j).getNodeName().equals("Word"))
                         {
-                            Controller.ACCOUNT.InLearning.add(subNodeList.item(j).getFirstChild().getNodeValue());
+                            ACCOUNT.InLearning.add(subNodeList.item(j).getFirstChild().getNodeValue());
                         }
                     }
                     break;
