@@ -12,8 +12,10 @@ import static sample.Controller.STAGE;
 
 public class MainTest1 extends Application {
 
-    public MainTest1(Stage stage) {
-
+    public MainTest1(Stage primaryStageTest1) throws IOException {
+        Parent rootTest1 = FXMLLoader.load(getClass().getResource("test1.fxml"));
+        primaryStageTest1.setTitle("Test 1");
+        primaryStageTest1.setScene(new Scene(rootTest1));
     }
 
     public static void main(String[] args) {
@@ -21,9 +23,7 @@ public class MainTest1 extends Application {
     }
 
     @Override
-    public void start(Stage primaryStageTest1) throws IOException{
-        Parent rootTest1 = FXMLLoader.load(getClass().getResource("test1.fxml"));
-        primaryStageTest1.setTitle("Test 1");
-        primaryStageTest1.setScene(new Scene(rootTest1));
+    public void start(Stage primaryStageTest1) {
+
     }
 }

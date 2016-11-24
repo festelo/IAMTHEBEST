@@ -11,11 +11,13 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 import static sample.Controller.STAGE;
 import Test1.*;
+import settings.MainSettings;
 
 public class Controller implements Initializable {
 
@@ -108,12 +110,13 @@ public class Controller implements Initializable {
         return  returnStr;
     }
 
-    public void clickTesting(ActionEvent actionEvent) {
+    public void clickTesting(ActionEvent actionEvent) throws IOException {
         System.out.println("clickedTesting");
         new MainTest1(STAGE);
     }
 
-    public void clickSetting() {
+    public void clickSetting() throws IOException{
         System.out.println("clickSetting");
+        new MainSettings(STAGE);
     }
 }

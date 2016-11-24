@@ -10,14 +10,18 @@ import java.io.IOException;
 
 public class MainStata extends Application {
 
+    public MainStata(Stage primaryStageStata) throws IOException {
+        Parent rootStata = FXMLLoader.load(getClass().getResource("stata.fxml"));
+        primaryStageStata.setTitle("Statistics");
+        primaryStageStata.setScene(new Scene(rootStata));
+    }
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStageTest1) throws IOException{
-        Parent rootTest1 = FXMLLoader.load(getClass().getResource("stata.fxml"));
-        primaryStageTest1.setTitle("Statistics");
-        primaryStageTest1.setScene(new Scene(rootTest1));
+    public void start(Stage primaryStageStata) {
+
     }
 }

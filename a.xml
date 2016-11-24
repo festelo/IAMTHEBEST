@@ -209,7 +209,7 @@
         </Word>
     </GlobalDictionary>
 
-    <ACCOUNT Login="name" Pass="pass" FirstName="Volodya" LastName="Pavlov">
+    <ACCOUNT Login="name" Pass="pass" FirstName="Vladimir" LastName="Pavlov">
         <Learned>
             <Word>Say</Word>
         </Learned>
