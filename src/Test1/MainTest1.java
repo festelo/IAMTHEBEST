@@ -6,11 +6,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class MainTest1 {
     public MainTest1(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
+
+        Collections.shuffle(Translates);
+        Collections.shuffle(Words);
         ControllerTest1.Translates.addAll(Translates);
         ControllerTest1.Words.addAll(Words);
 

@@ -22,13 +22,9 @@ public class ControllerTest1 implements Initializable {
     public TableView tableView;
     public ListView<String> ListViewTranslates;
     public ListView<String> ListViewWords;
-    public String selectedWord;
-    public String selectedTranslate;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Collections.shuffle(Translates);
-        Collections.shuffle(Words);
 
         ListViewWords.setItems(Words);
         ListViewTranslates.setItems(Translates);

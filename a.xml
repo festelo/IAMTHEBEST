@@ -215,6 +215,9 @@
         </Learned>
         <InLearning Stage="0">
             <Word>Apple</Word>
+            <Word>Above</Word>
+            <Word>Able</Word>>
+            <Word>Woman</Word>
         </InLearning>
     </ACCOUNT>
 </XML>
