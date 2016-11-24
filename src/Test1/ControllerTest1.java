@@ -1,5 +1,6 @@
 package Test1;
 
+import Test2.MainTest2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,8 +13,11 @@ import javafx.scene.input.MouseEvent;
 import mainApp.MainApp;
 import mainApp.TableData;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+
+import static Test1.MainTest1.stageTest1;
 
 public class ControllerTest1 implements Initializable {
     static public ObservableList<String> Words = FXCollections.observableArrayList();
@@ -74,7 +78,7 @@ public class ControllerTest1 implements Initializable {
         }
     }
 
-    public void OkClick(ActionEvent actionEvent) {
+    public void clickOK(ActionEvent actionEvent) throws IOException {
         if(Words.size() == 0 && Translates.size() == 0)
         {
             for (TableData td : Result)
@@ -86,10 +90,13 @@ public class ControllerTest1 implements Initializable {
                 }
             }
             OkBtn.setText("Yes!");
+            new MainTest2(stageTest1);
         }
         else
         {
             OkBtn.setText("Not all!");
         }
     }
+
+
 }

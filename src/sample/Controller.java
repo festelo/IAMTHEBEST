@@ -50,7 +50,6 @@ public class Controller implements Initializable {
     }
 
     public void click(ActionEvent actionEvent) throws Exception {
-        System.out.println("clicked");
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 
         Document document = documentBuilder.parse("a.xml");
