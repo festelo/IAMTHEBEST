@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 
 
+<?import javafx.scene.control.Button?>
 <ScrollPane xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Test1.ControllerTest1">
     <content>
         <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0">
@@ -19,16 +20,18 @@
             </columnConstraints>
             <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="195.0" minHeight="10.0" percentHeight="5.0" prefHeight="16.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ListView prefHeight="200.0" prefWidth="200.0" fx:id="ListViewWords" onMouseClicked="#ListViewClicked"/>
-                <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" fx:id="ListViewTranslates" onMouseClicked="#ListViewClicked"/>
+                <ListView prefHeight="200.0" prefWidth="200.0" fx:id="ListViewWords" onMouseClicked="#ListViewClicked" GridPane.rowSpan="2"/>
+                <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" fx:id="ListViewTranslates" GridPane.rowSpan="2" onMouseClicked="#ListViewClicked"/>
                 <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="tableView">
                     <columns>
                         <TableColumn prefWidth="120.0" text="Слово" fx:id="tableViewWord"/>
                         <TableColumn prefWidth="120.0" text="Перевод" fx:id="tableViewTranslate"/>
                     </columns>
                 </TableView>
+                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="666.0" text="OK" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             </children>
         </GridPane>
     </content>
