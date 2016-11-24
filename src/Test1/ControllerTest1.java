@@ -37,8 +37,18 @@ public class ControllerTest1 implements Initializable {
         // TODO (don't really need to do anything here).
 
     }
+    String selectedObj;
     public void ListViewClicked(MouseEvent mouseEvent)
     {
+        ListView thisList = (ListView)mouseEvent.getSource();
+        String nowSelectObj = (String)thisList.getSelectionModel().getSelectedItem();
+        if(selectedObj == nowSelectObj) {
+            thisList.getSelectionModel().clearSelection();
+            selectedObj = null;
+        }
+        else
+            selectedObj = (String) thisList.getSelectionModel().getSelectedItem();
+
         String wordObj = ListViewWords.getSelectionModel().getSelectedItem();
         String translateObj = ListViewTranslates.getSelectionModel().getSelectedItem();
         if(wordObj != null && translateObj != null)
