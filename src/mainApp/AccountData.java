@@ -1,5 +1,6 @@
 package mainApp;
 
+import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -12,12 +13,15 @@ import java.util.Map;
 public class AccountData {
     public class Nodes
     {
+        public Document document;
         public Node InLearningNode;
         public Node LearnedNode;
         public Node AccountNode;
 
-        public void Parse(Node DataNode, Node DictionaryNode)
+        public void Parse(Document Document, int ID)
         {
+            Node DataNode = Document.getElementsByTagName("ACCOUNT").item(ID);
+            Node DictionaryNode = Document.getElementsByTagName("GlobalDictionary").item(0);
             NodeList nodeList = DictionaryNode.getChildNodes();
             for (int i = 0; i<nodeList.getLength(); i++)
             {

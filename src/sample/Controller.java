@@ -62,7 +62,7 @@ public class Controller implements Initializable {
         }
         String login = LoginText.getText();
         if( map.get(login) != null && map.get(login).password.equals(PasswordText.getText()))   
-            new MainApp(STAGE, nodes.item(map.get(login).id), document.getElementsByTagName("GlobalDictionary").item(0));
+            new MainApp(STAGE, document, map.get(login).id);
         else showDialog();
     }
 

@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -17,9 +18,9 @@ public class MainApp {
 
     static public AccountData ACCOUNT;
 
-    public MainApp(Stage primaryStageMain, Node DataNode, Node DictionaryNode) throws Exception{
+    public MainApp(Stage primaryStageMain, Document doc, int ID) throws Exception{
         ACCOUNT = new AccountData();
-        ACCOUNT.Nodes.Parse(DataNode, DictionaryNode);
+        ACCOUNT.Nodes.Parse(doc, ID);
         Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
         primaryStageMain.setTitle("Learn English");
         primaryStageMain.setScene(new Scene(rootMain));
