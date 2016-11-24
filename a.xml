@@ -213,7 +213,7 @@
         <Learned>
             <Word>Say</Word>
         </Learned>
-        <InLearning>
+        <InLearning Stage="0">
             <Word>Apple</Word>
         </InLearning>
     </ACCOUNT>

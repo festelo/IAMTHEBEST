@@ -9,5 +9,6 @@ public class AccountData {
     public List<String> Learned = new ArrayList<>();
     public List<String> UnLearned = new ArrayList<>();
     public List<String> InLearning = new ArrayList<>();
+    public int LearnStage;
 }
 

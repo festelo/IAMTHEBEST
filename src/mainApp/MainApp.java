@@ -58,6 +58,7 @@ public class MainApp {
                 }
                 case "InLearning":
                 {
+                    Controller.ACCOUNT.LearnStage = Integer.parseInt(nodeList.item(i).getAttributes().getNamedItem("Stage").getNodeValue());
                     NodeList subNodeList = nodeList.item(i).getChildNodes();
                     for (int j = 0; j< subNodeList.getLength(); j++)
                     {
