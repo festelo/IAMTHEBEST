@@ -5,14 +5,21 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class AccountData {
-    public void setStage(int Stage)
-    {
+    public void setStage(int Stage) throws TransformerException, FileNotFoundException {
         this.Stage = Stage;
         Nodes.SaveStage(Stage);
     }
@@ -24,10 +31,10 @@ public class AccountData {
         public Node LearnedNode;
         public Node AccountNode;
 
-        public void SaveStage(int Stage)
-        {
+        public void SaveStage(int Stage) throws TransformerException, FileNotFoundException {
             InLearningNode.getAttributes().getNamedItem("Stage").setNodeValue(Integer.toString(Stage));
-
+            Transformer t= TransformerFactory.newInstance().newTransformer();
+            t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(Path)));
         }
 
         public void Parse(Document Document, int ID)
