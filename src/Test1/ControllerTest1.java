@@ -62,9 +62,11 @@ public class ControllerTest1 implements Initializable {
         if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
             if(mouseEvent.getClickCount() == 2){
                 TableData td = (TableData) tableView.getSelectionModel().getSelectedItem();
-                Result.remove(td);
-                Words.add(td.getWord());
-                Translates.add(td.getTranslates());
+                if(td != null) {
+                    Result.remove(td);
+                    Words.add(td.getWord());
+                    Translates.add(td.getTranslates());
+                }
             }
         }
     }
