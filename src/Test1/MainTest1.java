@@ -13,8 +13,6 @@ import java.util.Random;
 public class MainTest1 {
     public MainTest1(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
 
-        Collections.shuffle(Translates);
-        Collections.shuffle(Words);
         ControllerTest1.Translates.addAll(Translates);
         ControllerTest1.Words.addAll(Words);
 

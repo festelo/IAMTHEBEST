@@ -24,12 +24,16 @@ import settings.MainSettings;
 
 public class Controller implements Initializable {
     public void testBtn(ActionEvent actionEvent) throws Exception {
-        List<String> Words = new ArrayList<>();
+        List<String> Words = ACCOUNT.InLearning;
         List<String> Translates = new ArrayList<>();
-        Words.add("Слово");
-        Words.add("Перевод");
-        Translates.add("Translate");
-        Translates.add("Word");
+        Random rand = new Random();
+        for (String s: Words) {
+            List<String>  listTEMP = WordBase.get(s);
+            Translates.add(listTEMP.get(rand.nextInt(listTEMP.size())));
+        }
+
+        Collections.shuffle(Translates);
+        Collections.shuffle(Words);
         new MainTest1(sample.Controller.STAGE, Words, Translates);
     }
 
