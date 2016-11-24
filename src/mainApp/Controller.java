@@ -119,14 +119,4 @@ public class Controller implements Initializable {
         }
         return  returnStr;
     }
-
-    public void clickTesting(ActionEvent actionEvent) throws IOException {
-        System.out.println("clickedTesting");
-        new MainTest1(STAGE);
-    }
-
-    public void clickSetting() throws IOException{
-        System.out.println("clickSetting");
-        new MainSettings(STAGE);
-    }
 }
