@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import mainApp.Controller;
 import mainApp.TableData;
 
 import java.net.URL;
@@ -28,13 +27,15 @@ public class ControllerTest1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Collections.shuffle(Translates);
+        Collections.shuffle(Words);
+
         ListViewWords.setItems(Words);
         ListViewTranslates.setItems(Translates);
 
         tableViewWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         tableViewTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
         tableView.setItems(Result);
-        // TODO (don't really need to do anything here).
 
     }
     String selectedObj;
@@ -59,7 +60,6 @@ public class ControllerTest1 implements Initializable {
             ListViewWords.getSelectionModel().clearSelection();
             ListViewTranslates.getSelectionModel().clearSelection();
         }
-        System.out.print(123);
     }
 
     public void tableViewClicked(MouseEvent mouseEvent) {
