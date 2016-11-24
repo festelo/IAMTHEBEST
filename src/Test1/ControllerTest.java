@@ -1,6 +1,5 @@
 package Test1;
 
-import Test2.MainTest2;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,16 +11,13 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import mainApp.MainApp;
 import mainApp.TableData;
+import sample.Main;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-
-import static Test1.MainTest1.primaryStageMain;
-import static Test1.MainTest1.stageTest1;
-
-public class ControllerTest1 implements Initializable {
+public class ControllerTest implements Initializable {
     static public ObservableList<String> Words = FXCollections.observableArrayList();
     static public ObservableList<String> Translates = FXCollections.observableArrayList();
     static public ObservableList<TableData> Result = FXCollections.observableArrayList();
@@ -91,9 +87,10 @@ public class ControllerTest1 implements Initializable {
                     return;
                 }
             }
-            OkBtn.setText("Yes!");
             MainApp.ACCOUNT.setStage(1);
-            new MainTest2(primaryStageMain, stageTest1);
+            MainTest.result = true;
+            MainTest.onClosing(MainTest.primaryStageMain);
+            MainTest.thisStage.close();
         }
         else
         {

@@ -219,11 +219,11 @@
         <Learned>
             <Word>Window</Word>
         </Learned>
-        <InLearning Stage="1">
+        <InLearning Stage="0">
             <Word>Arm</Word>
             <Word>Apple</Word>
             <Word>Above</Word>
-            <Word>Able</Word>&gt;
+            <Word>Able</Word>
             <Word>Woman</Word>
         </InLearning>
     </ACCOUNT>
