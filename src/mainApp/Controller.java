@@ -34,7 +34,7 @@ public class Controller implements Initializable {
 
         Collections.shuffle(Translates);
         Collections.shuffle(Words);
-        new MainTest1(sample.Controller.STAGE, Words, Translates, MainApp.scene);
+        new MainTest1(sample.Controller.STAGE, Words, Translates);
     }
 
     static AccountData ACCOUNT;
