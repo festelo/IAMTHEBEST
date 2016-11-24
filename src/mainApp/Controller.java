@@ -35,7 +35,7 @@ public class Controller implements Initializable {
             //new MainTest2(sample.Controller.STAGE, new Stage());
         }
         if(ACCOUNT.getStage() == 2 || next){
-            new MainTest3(sample.Controller.STAGE);
+            new Test3.MainTest(sample.Controller.STAGE);
         }
     }
 
