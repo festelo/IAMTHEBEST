@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import mainApp.Controller;
 import mainApp.TableData;
@@ -49,5 +50,16 @@ public class ControllerTest1 implements Initializable {
             ListViewTranslates.getSelectionModel().clearSelection();
         }
         System.out.print(123);
+    }
+
+    public void tableViewClicked(MouseEvent mouseEvent) {
+        if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if(mouseEvent.getClickCount() == 2){
+                TableData td = (TableData) tableView.getSelectionModel().getSelectedItem();
+                Result.remove(td);
+                Words.add(td.getWord());
+                Translates.add(td.getTranslates());
+            }
+        }
     }
 }

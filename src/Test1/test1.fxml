@@ -25,7 +25,7 @@
             <children>
                 <ListView prefHeight="200.0" prefWidth="200.0" fx:id="ListViewWords" onMouseClicked="#ListViewClicked" GridPane.rowSpan="2"/>
                 <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" fx:id="ListViewTranslates" GridPane.rowSpan="2" onMouseClicked="#ListViewClicked"/>
-                <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="tableView">
+                <TableView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" fx:id="tableView" onMouseClicked="#tableViewClicked">
                     <columns>
                         <TableColumn prefWidth="120.0" text="Слово" fx:id="tableViewWord"/>
                         <TableColumn prefWidth="120.0" text="Перевод" fx:id="tableViewTranslate"/>
