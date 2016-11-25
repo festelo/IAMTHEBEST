@@ -1,6 +1,5 @@
-package Test2;
+package Tests.Test2;
 
-import Test1.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;

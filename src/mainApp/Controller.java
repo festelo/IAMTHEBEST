@@ -1,6 +1,6 @@
 package mainApp;
 
-import Test2.MainTest;
+import Tests.Test2.MainTest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,7 +28,7 @@ public class Controller implements Initializable {
 
             Collections.shuffle(Translates);
             Collections.shuffle(Words);
-            Test1.MainTest dialog =  new Test1.MainTest(sample.Controller.STAGE, Words, Translates);
+            Tests.Test1.MainTest dialog =  new Tests.Test1.MainTest(sample.Controller.STAGE, Words, Translates);
             //next = dialog.result;
         }
         if(ACCOUNT.getStage() == 1){
@@ -47,7 +47,7 @@ public class Controller implements Initializable {
                 Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
             }
             Collections.shuffle(Translates);
-            new Test2.MainTest(sample.Controller.STAGE, Word, Translates, 2);
+            new MainTest(sample.Controller.STAGE, Word, Translates, 2);
         }
         Boolean result = false;
         if(ACCOUNT.getStage() == 2){
@@ -62,7 +62,7 @@ public class Controller implements Initializable {
                 if(s == Word) continue;
                 Words.add(s);
             }
-            new Test2.MainTest(sample.Controller.STAGE, Translate, Words, 3);
+            new MainTest(sample.Controller.STAGE, Translate, Words, 3);
             result = MainTest.result;
 
         }

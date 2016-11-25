@@ -116,8 +116,18 @@ public class AccountData {
             saveXML();
         }
     }
-    public void AddIn(List<String> Words, Node node) throws TransformerException, FileNotFoundException {
-        InLearning.addAll(Words);
+    public void AddIn(List<String> Words, String TypeName) throws TransformerException, FileNotFoundException {
+        Node node;
+        if(TypeName == "InLearning")
+        {
+            node = Nodes.InLearningNode;
+            InLearning.addAll(Words);
+        }
+        else
+        {
+            node = Nodes.LearnedNode;
+            Learned.addAll(Words);
+        }
         Nodes.AddIn(Words, node);
     }
     public void ClearInLearning() throws TransformerException, FileNotFoundException {

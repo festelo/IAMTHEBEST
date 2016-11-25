@@ -1,4 +1,4 @@
-package Test1;
+package Tests.Test1;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +11,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import mainApp.MainApp;
 import mainApp.TableData;
-import sample.Main;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
