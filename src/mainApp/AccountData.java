@@ -99,11 +99,11 @@ public class AccountData {
                 }
             }
         }
-        public void AddInLearning(List<String> Words) throws TransformerException, FileNotFoundException {
+        public void AddIn(List<String> Words, Node node) throws TransformerException, FileNotFoundException {
             for(String s: Words) {
                 Element Word = document.createElement("Word");
                 Word.appendChild(document.createTextNode(s));
-                InLearningNode.appendChild(Word);
+                node.appendChild(Word);
             }
             saveXML();
         }
@@ -116,9 +116,9 @@ public class AccountData {
             saveXML();
         }
     }
-    public void AddInLearning(List<String> Words) throws TransformerException, FileNotFoundException {
+    public void AddIn(List<String> Words, Node node) throws TransformerException, FileNotFoundException {
         InLearning.addAll(Words);
-        Nodes.AddInLearning(Words);
+        Nodes.AddIn(Words, node);
     }
     public void ClearInLearning() throws TransformerException, FileNotFoundException {
         Nodes.ClearInLearning();
