@@ -37,15 +37,11 @@ public class Controller implements Initializable {
             ACCOUNT.InLearning.get(rand.nextInt(ACCOUNT.InLearning.size()));
             List<String> Translates = new ArrayList<>();
             Translates.add(WordBase.get(Word).get(rand.nextInt(WordBase.get(Word).size())));
-            int i = 0;
-            List<String> keysets = new ArrayList<>();
-            keysets.addAll(WordBase.keySet());
-            Collections.shuffle(keysets);
-            for (String s : keysets)
+
+
+            for (String s : ACCOUNT.InLearning)
             {
                 if(s == Word) continue;
-                i++;
-                if(i == 17) break;
                 //
                 List<String> TranslateList = WordBase.get(s);
                 Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
