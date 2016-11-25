@@ -38,7 +38,10 @@ public class Controller implements Initializable {
             List<String> Translates = new ArrayList<>();
             Translates.add(WordBase.get(Word).get(rand.nextInt(WordBase.get(Word).size())));
             int i = 0;
-            for (String s : WordBase.keySet())
+            List<String> keysets = new ArrayList<>();
+            keysets.addAll(WordBase.keySet());
+            Collections.shuffle(keysets);
+            for (String s : keysets)
             {
                 if(s == Word) continue;
                 i++;
