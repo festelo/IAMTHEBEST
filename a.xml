@@ -219,7 +219,7 @@
         <Learned>
             <Word>Window</Word>
         </Learned>
-        <InLearning Stage="0">
+        <InLearning Stage="1">
             <Word>Arm</Word>
             <Word>Apple</Word>
             <Word>Above</Word>

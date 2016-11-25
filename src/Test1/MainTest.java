@@ -14,7 +14,9 @@ public class MainTest {
     public MainTest(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
         this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
+        ControllerTest.Translates.clear();
         ControllerTest.Translates.addAll(Translates);
+        ControllerTest.Words.clear();
         ControllerTest.Words.addAll(Words);
 
         result = false;

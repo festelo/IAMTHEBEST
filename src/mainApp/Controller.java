@@ -29,14 +29,31 @@ public class Controller implements Initializable {
             Collections.shuffle(Translates);
             Collections.shuffle(Words);
             Test1.MainTest dialog =  new Test1.MainTest(sample.Controller.STAGE, Words, Translates);
-            next = dialog.result;
+            //next = dialog.result;
         }
-        if(ACCOUNT.getStage() == 1 || next){
-            //new MainTest2(sample.Controller.STAGE, new Stage());
+        if(ACCOUNT.getStage() == 1){
+            Random rand = new Random();
+            String Word =
+            ACCOUNT.InLearning.get(rand.nextInt(ACCOUNT.InLearning.size()));
+            List<String> Translates = new ArrayList<>();
+            Translates.add(WordBase.get(Word).get(rand.nextInt(WordBase.get(Word).size())));
+            int i = 0;
+            for (String s : WordBase.keySet())
+            {
+                if(s == Word) continue;
+                i++;
+                if(i == 17) break;
+                //
+                List<String> TranslateList = WordBase.get(s);
+                Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
+            }
+            Collections.shuffle(Translates);
+            new Test2.MainTest(sample.Controller.STAGE, Word, Translates);
         }
-        if(ACCOUNT.getStage() == 2 || next){
+        if(ACCOUNT.getStage() == 2){
             new Test3.MainTest(sample.Controller.STAGE);
         }
+        if(next);
     }
 
 

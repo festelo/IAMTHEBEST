@@ -14,8 +14,11 @@ public class MainTest {
 
     public static boolean result;
     public static Stage thisStage;
+    public static Stage primaryStageMain;
     public MainTest(Stage primaryStageMain, String Word, List<String> Translates) throws Exception {
         primaryStageMain.hide();
+        this.primaryStageMain = primaryStageMain;
+        ControllerTest.Translates.clear();
         ControllerTest.Translates.addAll(Translates);
         ControllerTest.Word = Word;
 
@@ -27,7 +30,7 @@ public class MainTest {
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         thisStage.showAndWait();
     }
-    public void onClosing(Stage primaryStageMain)
+    public static void onClosing(Stage primaryStageMain)
     {
         primaryStageMain.show();
     }
