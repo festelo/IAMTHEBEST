@@ -15,7 +15,7 @@ public class MainTest {
     public static boolean result;
     public static Stage thisStage;
     public static Stage primaryStageMain;
-    public MainTest(Stage primaryStageMain, String Word, List<String> Translates) throws Exception {
+    public MainTest(Stage primaryStageMain, String Word, List<String> Translates, int Test) throws Exception {
         primaryStageMain.hide();
         this.primaryStageMain = primaryStageMain;
         ControllerTest.Translates.clear();
@@ -24,8 +24,9 @@ public class MainTest {
 
         result = false;
         thisStage = new Stage();
+        if(Test == 2) thisStage.setTitle("Second Test");
+        else thisStage.setTitle("Third Test");
         Parent rootMain = FXMLLoader.load(getClass().getResource("test.fxml"));
-        thisStage.setTitle("First Test");
         thisStage.setScene(new Scene(rootMain));
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         thisStage.showAndWait();

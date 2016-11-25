@@ -47,10 +47,21 @@ public class Controller implements Initializable {
                 Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
             }
             Collections.shuffle(Translates);
-            new Test2.MainTest(sample.Controller.STAGE, Word, Translates);
+            new Test2.MainTest(sample.Controller.STAGE, Word, Translates, 2);
         }
         if(ACCOUNT.getStage() == 2){
-            new Test3.MainTest(sample.Controller.STAGE);
+            Random rand = new Random();
+            String Word =
+                    ACCOUNT.InLearning.get(rand.nextInt(ACCOUNT.InLearning.size()));
+            String Translate = WordBase.get(Word).get(rand.nextInt(WordBase.get(Word).size()));
+            List<String>  Words = new ArrayList<>();
+            Words.add(Word);
+            for (String s : ACCOUNT.InLearning)
+            {
+                if(s == Word) continue;
+                Words.add(s);
+            }
+            new Test2.MainTest(sample.Controller.STAGE, Translate, Words, 3);
         }
         if(next);
     }
