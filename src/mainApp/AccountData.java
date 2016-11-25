@@ -1,14 +1,8 @@
 package mainApp;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.w3c.dom.*;
 
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.FileNotFoundException;
@@ -31,10 +25,15 @@ public class AccountData {
         public Node LearnedNode;
         public Node AccountNode;
 
+        private void saveXML() throws TransformerException, FileNotFoundException {
+            Transformer t= TransformerFactory.newInstance().newTransformer();
+            t.setOutputProperty(OutputKeys.METHOD, "xml");
+            t.setOutputProperty(OutputKeys.INDENT, "yes");
+            t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(Path)));
+        }
         public void SaveStage(int Stage) throws TransformerException, FileNotFoundException {
             InLearningNode.getAttributes().getNamedItem("Stage").setNodeValue(Integer.toString(Stage));
-            Transformer t= TransformerFactory.newInstance().newTransformer();
-            t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(Path)));
+            saveXML();
         }
 
         public void Parse(Document Document, int ID)
@@ -100,6 +99,31 @@ public class AccountData {
                 }
             }
         }
+        public void AddInLearning(List<String> Words) throws TransformerException, FileNotFoundException {
+            for(String s: Words) {
+                Element Word = document.createElement("Word");
+                Word.appendChild(document.createTextNode(s));
+                InLearningNode.appendChild(Word);
+            }
+            saveXML();
+        }
+        public void ClearInLearning() throws TransformerException, FileNotFoundException {
+            AccountNode.removeChild(InLearningNode);
+            InLearningNode = document.createElement("InLearning");
+            Element element = (Element) InLearningNode;
+            element.setAttribute("Stage", "0");
+            AccountNode.appendChild(InLearningNode);
+            saveXML();
+        }
+    }
+    public void AddInLearning(List<String> Words) throws TransformerException, FileNotFoundException {
+        InLearning.addAll(Words);
+        Nodes.AddInLearning(Words);
+    }
+    public void ClearInLearning() throws TransformerException, FileNotFoundException {
+        Nodes.ClearInLearning();
+        InLearning.clear();
+        Stage = 0;
     }
     public static String Path = "a.xml";
     public Nodes Nodes = new Nodes();
