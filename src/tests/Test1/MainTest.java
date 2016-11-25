@@ -1,5 +1,8 @@
 package tests.Test1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,20 +11,25 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class MainTest {
-    public static boolean result;
-    public static Stage thisStage;
-    public static Stage primaryStageMain;
+    public ObservableList<String> Words = FXCollections.observableArrayList();
+    public ObservableList<String> Translates = FXCollections.observableArrayList();
+    public boolean result = false;
+    Stage primaryStageMain;
+    Stage thisStage;
     public MainTest(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
         this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
-        ControllerTest.Translates.clear();
-        ControllerTest.Translates.addAll(Translates);
-        ControllerTest.Words.clear();
-        ControllerTest.Words.addAll(Words);
+
+        this.Translates.addAll(Translates);
+        this.Words.addAll(Words);
+
+        ControllerTest test = new ControllerTest(this);
 
         result = false;
         thisStage = new Stage();
-        Parent rootMain = FXMLLoader.load(getClass().getResource("test.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
+        loader.setController(test);
+        Parent rootMain = loader.load();
         thisStage.setTitle("First Test");
         thisStage.setScene(new Scene(rootMain));
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
@@ -30,5 +38,10 @@ public class MainTest {
     public static void onClosing(Stage primaryStageMain)
     {
         primaryStageMain.show();
+    }
+    public void Close()
+    {
+        onClosing(primaryStageMain);
+        thisStage.close();
     }
 }

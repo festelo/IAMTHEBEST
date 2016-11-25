@@ -1,5 +1,6 @@
 package tests;
 
+import javafx.stage.Stage;
 import tests.Test2.MainTest;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import static mainApp.MainApp.ACCOUNT;
  * Created by me on 25.11.2016.
  */
 public class Tests {
-    public Tests() throws Exception {
+    public Tests(Stage MainStage) throws Exception {
 
         if(ACCOUNT.getStage() == 0) {
             List<String> Words = ACCOUNT.InLearning;
@@ -27,7 +28,7 @@ public class Tests {
 
             Collections.shuffle(Translates);
             Collections.shuffle(Words);
-            tests.Test1.MainTest dialog =  new tests.Test1.MainTest(sample.Controller.STAGE, Words, Translates);
+            tests.Test1.MainTest dialog =  new tests.Test1.MainTest(MainStage, Words, Translates);
             //next = dialog.result;
         }
         if(ACCOUNT.getStage() == 1){
@@ -40,13 +41,13 @@ public class Tests {
 
             for (String s : ACCOUNT.InLearning)
             {
-                if(s == Word) continue;
+                if(s.equals(Word)) continue;
                 //
                 List<String> TranslateList = WordBase.get(s);
                 Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
             }
             Collections.shuffle(Translates);
-            new MainTest(sample.Controller.STAGE, Word, Translates, 2);
+            new MainTest(MainStage, Word, Translates, 2);
         }
         Boolean result = false;
         if(ACCOUNT.getStage() == 2){
@@ -61,8 +62,8 @@ public class Tests {
                 if(s == Word) continue;
                 Words.add(s);
             }
-            new MainTest(sample.Controller.STAGE, Translate, Words, 3);
-            result = MainTest.result;
+            MainTest dialog = new MainTest(MainStage, Translate, Words, 3);
+            result = dialog.result;
 
         }
         if(result)

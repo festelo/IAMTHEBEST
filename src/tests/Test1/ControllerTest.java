@@ -9,16 +9,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import mainApp.Controller;
 import mainApp.MainApp;
 import mainApp.TableData;
+import sample.Main;
 
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 public class ControllerTest implements Initializable {
-    static public ObservableList<String> Words = FXCollections.observableArrayList();
-    static public ObservableList<String> Translates = FXCollections.observableArrayList();
     static public ObservableList<TableData> Result = FXCollections.observableArrayList();
     public TableColumn tableViewWord;
     public TableColumn tableViewTranslate;
@@ -26,12 +26,17 @@ public class ControllerTest implements Initializable {
     public ListView<String> ListViewTranslates;
     public ListView<String> ListViewWords;
     public Button OkBtn;
+    MainTest Main;
 
+    public ControllerTest(MainTest Main)
+    {
+        this.Main = Main;
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        ListViewWords.setItems(Words);
-        ListViewTranslates.setItems(Translates);
+        ListViewWords.setItems(Main.Words);
+        ListViewTranslates.setItems(Main.Translates);
 
         tableViewWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         tableViewTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
@@ -54,8 +59,8 @@ public class ControllerTest implements Initializable {
         String translateObj = ListViewTranslates.getSelectionModel().getSelectedItem();
         if(wordObj != null && translateObj != null)
         {
-            Words.remove(wordObj);
-            Translates.remove(translateObj);
+            Main.Words.remove(wordObj);
+            Main.Translates.remove(translateObj);
             Result.add(new TableData(wordObj, translateObj));
             ListViewWords.getSelectionModel().clearSelection();
             ListViewTranslates.getSelectionModel().clearSelection();
@@ -68,15 +73,15 @@ public class ControllerTest implements Initializable {
                 TableData td = (TableData) tableView.getSelectionModel().getSelectedItem();
                 if(td != null) {
                     Result.remove(td);
-                    Words.add(td.getWord());
-                    Translates.add(td.getTranslates());
+                    Main.Words.add(td.getWord());
+                    Main.Translates.add(td.getTranslates());
                 }
             }
         }
     }
 
     public void clickOK(ActionEvent actionEvent) throws IOException, TransformerException {
-        if(Words.size() == 0 && Translates.size() == 0)
+        if(Main.Words.size() == 0 && Main.Translates.size() == 0)
         {
             for (TableData td : Result)
             {
@@ -87,9 +92,8 @@ public class ControllerTest implements Initializable {
                 }
             }
             MainApp.ACCOUNT.setStage(1);
-            MainTest.result = true;
-            MainTest.onClosing(MainTest.primaryStageMain);
-            MainTest.thisStage.close();
+            Main.result = true;
+            Main.Close();
         }
         else
         {

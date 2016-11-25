@@ -31,9 +31,6 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public static Stage STAGE;
-
-    @FXML
     private Button btn;
 
     @FXML
@@ -41,7 +38,12 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField PasswordText;
+    public Main main;
 
+    public Controller(Main main)
+    {
+        this.main = main;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,8 +63,10 @@ public class Controller implements Initializable {
             map.put(log, new mapData(pass, i));
         }
         String login = LoginText.getText();
-        if( map.get(login) != null && map.get(login).password.equals(PasswordText.getText()))   
-            new MainApp(STAGE, document, map.get(login).id);
+        if( map.get(login) != null && map.get(login).password.equals(PasswordText.getText())) {
+            main.primaryStage.close();
+            new MainApp(document, map.get(login).id);
+        }
         else showDialog();
     }
 

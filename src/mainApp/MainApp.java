@@ -17,12 +17,17 @@ import java.util.Map;
 public class MainApp {
 
     static public AccountData ACCOUNT;
-
-    public MainApp(Stage primaryStageMain, Document doc, int ID) throws Exception{
+    public Stage primaryStageMain;
+    public MainApp(Document doc, int ID) throws Exception{
         ACCOUNT = new AccountData();
         ACCOUNT.Nodes.Parse(doc, ID);
-        Parent rootMain = FXMLLoader.load(getClass().getResource("mainApp.fxml"));
+        primaryStageMain = new Stage();
+        Controller controller = new Controller(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mainApp.fxml"));
+        loader.setController(controller);
+        Parent root = loader.load();
         primaryStageMain.setTitle("Learn English");
-        primaryStageMain.setScene(new Scene(rootMain));
+        primaryStageMain.setScene(new Scene(root));
+        primaryStageMain.show();
     }
 }

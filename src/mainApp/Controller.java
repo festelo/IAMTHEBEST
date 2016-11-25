@@ -16,9 +16,13 @@ import static mainApp.MainApp.ACCOUNT;
 
 public class Controller implements Initializable {
     public void testBtn(ActionEvent actionEvent) throws Exception {
-        new tests.Tests();
+        new tests.Tests(Main.primaryStageMain);
     }
-
+    MainApp Main;
+    public Controller(MainApp app)
+    {
+        Main = app;
+    }
 
     @FXML
     private TableView<TableData> LearnedTable;
