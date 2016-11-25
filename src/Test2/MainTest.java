@@ -15,7 +15,9 @@ public class MainTest {
     public static boolean result;
     public static Stage thisStage;
     public static Stage primaryStageMain;
+    public static int Test;
     public MainTest(Stage primaryStageMain, String Word, List<String> Translates, int Test) throws Exception {
+        this.Test = Test;
         primaryStageMain.hide();
         this.primaryStageMain = primaryStageMain;
         ControllerTest.Translates.clear();

@@ -1,5 +1,6 @@
 package mainApp;
 
+import Test2.MainTest;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +17,6 @@ import static mainApp.MainApp.ACCOUNT;
 
 public class Controller implements Initializable {
     public void testBtn(ActionEvent actionEvent) throws Exception {
-        Boolean next = false;
         if(ACCOUNT.getStage() == 0) {
             List<String> Words = ACCOUNT.InLearning;
             List<String> Translates = new ArrayList<>();
@@ -49,6 +49,7 @@ public class Controller implements Initializable {
             Collections.shuffle(Translates);
             new Test2.MainTest(sample.Controller.STAGE, Word, Translates, 2);
         }
+        Boolean result = false;
         if(ACCOUNT.getStage() == 2){
             Random rand = new Random();
             String Word =
@@ -62,8 +63,15 @@ public class Controller implements Initializable {
                 Words.add(s);
             }
             new Test2.MainTest(sample.Controller.STAGE, Translate, Words, 3);
+            result = MainTest.result;
+
         }
-        if(next);
+        if(result)
+        {
+            // Добавить слова из InLearning в Learned
+            // Очистить InLearning,
+            // Добавить рандомные слова в InLearning из UnLearned
+        }
     }
 
 

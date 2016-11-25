@@ -30,7 +30,7 @@ public class ControllerTest implements Initializable {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
         if(MainApp.ACCOUNT.WordBase.get(Word).contains(selectedItem))
         {
-            MainApp.ACCOUNT.setStage(2);
+            if(MainTest.Test == 2)MainApp.ACCOUNT.setStage(2);
             MainTest.result = true;
             MainTest.onClosing(MainTest.primaryStageMain);
             MainTest.thisStage.close();
