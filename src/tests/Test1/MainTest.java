@@ -1,4 +1,4 @@
-package Tests.Test1;
+package tests.Test1;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
