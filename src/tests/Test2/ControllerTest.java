@@ -1,14 +1,11 @@
 package tests.Test2;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import mainApp.Controller;
 import mainApp.MainApp;
 
 import java.net.URL;

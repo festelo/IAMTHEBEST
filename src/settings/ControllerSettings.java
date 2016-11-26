@@ -11,8 +11,14 @@ public class ControllerSettings implements Initializable {
     static AccountData ACCOUNT;
     static Map<String, List<String>> WordBase = new HashMap<>();
 
+    public int numberOfWordsToLearn;        //кол-во слов, которое нужно учить за 1 тест
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+    }
+
+    public void getNumber() {
+        //Получить кол-во слов, которое нужно учить за 1 тест (ChoiseBox)
     }
 }

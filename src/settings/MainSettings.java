@@ -12,6 +12,7 @@ import static tests.Test1.MainTest.onClosing;
 
 public class MainSettings extends Application {
 
+
     private Stage currentStage;
 
     public MainSettings(Stage primaryStageMain) throws IOException {

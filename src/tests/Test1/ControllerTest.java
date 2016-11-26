@@ -43,6 +43,7 @@ public class ControllerTest implements Initializable {
         tableView.setItems(Result);
 
     }
+    
     String selectedObj;
     public void ListViewClicked(MouseEvent mouseEvent)
     {
@@ -91,13 +92,17 @@ public class ControllerTest implements Initializable {
                     return;
                 }
             }
+
+            /*
+                подсчитать правильные ответы и неправильные
+            */
             MainApp.ACCOUNT.setStage(1);
             Main.result = true;
             Main.Close();
         }
         else
         {
-            OkBtn.setText("Not all!");
+            OkBtn.setText("Not all!");   //можно вывести это, но лучше не на кнопку
         }
     }
 

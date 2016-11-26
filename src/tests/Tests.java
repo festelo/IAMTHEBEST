@@ -12,6 +12,10 @@ import static mainApp.AccountData.WordBase;
 import static mainApp.MainApp.ACCOUNT;
 
 public class Tests {
+
+    public int rightAnswers;
+    public int wrongAnswers;
+
     public Tests(Stage MainStage) throws Exception
     {
 
