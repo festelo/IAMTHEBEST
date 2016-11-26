@@ -40,7 +40,7 @@
                 <TableColumn fx:id="UnLearnedTableTranslate" prefWidth="124.0" text="Translates" />
             </columns>
         </TableView>
-        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="3350.0" text="Settings" GridPane.columnIndex="2" />
+        <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="3350.0" text="Settings" GridPane.columnIndex="2" onAction="#settingsBtn" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learned" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Learning" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" text="Unlearned" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />

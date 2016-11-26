@@ -145,4 +145,3 @@ public class AccountData {
     static public Map<String, List<String>> WordBase = new HashMap<>();
     private int Stage;
 }
-

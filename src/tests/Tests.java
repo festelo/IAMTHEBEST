@@ -11,17 +11,19 @@ import java.util.Random;
 import static mainApp.AccountData.WordBase;
 import static mainApp.MainApp.ACCOUNT;
 
-/**
- * Created by me on 25.11.2016.
- */
 public class Tests {
-    public Tests(Stage MainStage) throws Exception {
+    public Tests(Stage MainStage) throws Exception
+    {
 
-        if(ACCOUNT.getStage() == 0) {
+        System.out.println(ACCOUNT.getStage());
+
+        if(ACCOUNT.getStage() == 0)
+        {
             List<String> Words = ACCOUNT.InLearning;
             List<String> Translates = new ArrayList<>();
             Random rand = new Random();
-            for (String s : Words) {
+            for (String s : Words)
+            {
                 List<String> listTEMP = WordBase.get(s);
                 Translates.add(listTEMP.get(rand.nextInt(listTEMP.size())));
             }
@@ -31,18 +33,17 @@ public class Tests {
             tests.Test1.MainTest dialog =  new tests.Test1.MainTest(MainStage, Words, Translates);
             //next = dialog.result;
         }
-        if(ACCOUNT.getStage() == 1){
+        if(ACCOUNT.getStage() == 1)
+        {
             Random rand = new Random();
             String Word =
                     ACCOUNT.InLearning.get(rand.nextInt(ACCOUNT.InLearning.size()));
             List<String> Translates = new ArrayList<>();
             Translates.add(WordBase.get(Word).get(rand.nextInt(WordBase.get(Word).size())));
 
-
             for (String s : ACCOUNT.InLearning)
             {
                 if(s.equals(Word)) continue;
-                //
                 List<String> TranslateList = WordBase.get(s);
                 Translates.add(TranslateList.get(rand.nextInt(TranslateList.size())));
             }
@@ -50,7 +51,8 @@ public class Tests {
             new MainTest(MainStage, Word, Translates, 2);
         }
         Boolean result = false;
-        if(ACCOUNT.getStage() == 2){
+        if(ACCOUNT.getStage() == 2)
+        {
             Random rand = new Random();
             String Word =
                     ACCOUNT.InLearning.get(rand.nextInt(ACCOUNT.InLearning.size()));

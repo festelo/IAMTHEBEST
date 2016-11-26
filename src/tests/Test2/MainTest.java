@@ -10,9 +10,6 @@ import javafx.stage.Stage;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by me on 24.11.2016.
- */
 public class MainTest {
 
     public boolean result;
@@ -31,8 +28,9 @@ public class MainTest {
 
         result = false;
         thisStage = new Stage();
-        if(Test == 2) thisStage.setTitle("Second Test");
-        else thisStage.setTitle("Third Test");
+        if(Test == 1) thisStage.setTitle("First Test");
+        else if(Test == 2) thisStage.setTitle("Second Test");
+        else if(Test == 3) thisStage.setTitle("Third Test");
         ControllerTest test = new ControllerTest(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
         loader.setController(test);

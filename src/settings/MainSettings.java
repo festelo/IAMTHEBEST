@@ -8,12 +8,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static tests.Test1.MainTest.onClosing;
+
 public class MainSettings extends Application {
 
-    public MainSettings(Stage primaryStageSettings) throws IOException {
+    private Stage currentStage;
+
+    public MainSettings(Stage primaryStageMain) throws IOException {
+        primaryStageMain.hide();
+        currentStage = new Stage();
         Parent rootSettings = FXMLLoader.load(getClass().getResource("settings.fxml"));
-        primaryStageSettings.setTitle("Settings");
-        primaryStageSettings.setScene(new Scene(rootSettings));
+        currentStage.setTitle("Settings");
+        currentStage.setScene(new Scene(rootSettings));
+        currentStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
+        currentStage.showAndWait();
 
     }
 

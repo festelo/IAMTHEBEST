@@ -7,6 +7,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -61,6 +62,10 @@ public class Controller implements Initializable {
         LearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.Learned));
         ACCOUNT.UnLearned = GETUnlearned();
         UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.UnLearned));
+    }
+
+    public void settingsBtn(ActionEvent actionEvent) throws IOException {
+        new settings.MainSettings(Main.primaryStageMain);
     }
 
     public List<String> GETUnlearned()
