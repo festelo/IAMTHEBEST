@@ -25,13 +25,14 @@ public class ControllerSettings implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        TestsTF.setText(Integer.toString(MainApp.ACCOUNT.Settings.Tests));
+        WordsTF.setText(Integer.toString(MainApp.ACCOUNT.Settings.Words));
     }
 
     public void Save(ActionEvent actionEvent) throws TransformerException, FileNotFoundException {
         int Words = Integer.parseInt(WordsTF.getText());
         int Tests = Integer.parseInt(TestsTF.getText());
-        MainApp.ACCOUNT.Settings.Save(Words, Tests);
+        MainApp.ACCOUNT.Settings.Save(Tests, Words);
         mainSettings.Close();
     }
 }

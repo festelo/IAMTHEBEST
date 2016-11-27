@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <XML>
     <Settings>
-        <Tests>3</Tests>
-        <Words>15</Words>
+        <Tests>2</Tests>
+        <Words>10</Words>
     </Settings>
     <GlobalDictionary>
         <Word Original="Say">
@@ -225,11 +225,53 @@
             <Word>Window</Word>
         </Learned>
         <InLearning>
-            <Word Stage="000">Arm</Word>
-            <Word Stage="000">Apple</Word>
-            <Word Stage="000">Above</Word>
-            <Word Stage="000">Able</Word>
-            <Word Stage="000">Woman</Word>
-        </InLearning>
+            
+            
+            
+            
+            
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<Word Stage="0">Competitor</Word>
+<Word Stage="0">Hello</Word>
+<Word Stage="0">Cousin</Word>
+<Word Stage="0">Hi</Word>
+<Word Stage="0">Chief</Word>
+<Word Stage="0">Aunt</Word>
+<Word Stage="0">Man</Word>
+<Word Stage="0">Waiter</Word>
+<Word Stage="0">Son</Word>
+<Word Stage="0">Neighbor</Word>
+</InLearning>
     </ACCOUNT>
 </XML>

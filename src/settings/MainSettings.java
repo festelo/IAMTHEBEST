@@ -14,13 +14,16 @@ public class MainSettings{
 
 
     private Stage currentStage;
+    private Stage primaryStageMain;
 
     public MainSettings(Stage primaryStageMain) throws IOException {
+        this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
         currentStage = new Stage();
         currentStage.setTitle("Settings");
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("settings.fxml"));
         ControllerSettings controllerSettings = new ControllerSettings(this);
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
         loader.setController(controllerSettings);
         Parent rootMain = loader.load();
         currentStage.setScene(new Scene(rootMain));
@@ -31,5 +34,6 @@ public class MainSettings{
     }
     public  void Close() {
         currentStage.close();
+        primaryStageMain.show();
     }
 }

@@ -61,6 +61,7 @@ public class ControllerTest implements Initializable {
             }
             else
                 {
+                    MainApp.ACCOUNT.UnSuccessfulList[2].add(Main.Word);
                     Main.result = false;
                     Main.Close();
                 }

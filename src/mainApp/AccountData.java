@@ -152,11 +152,15 @@ public class AccountData {
         }
     }
     public void AddIn(List<String> Words, String TypeName) throws TransformerException, FileNotFoundException {
-        Node node = null;
+        Node node;
         if(TypeName == "InLearning")
         {
             node = Nodes.InLearningNode;
-            InLearning.addAll(Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList()));
+            List<InLearning> inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
+            InLearning.addAll(inLearning);
+            inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
+            for(InLearning s : inLearning)
+                InLearningMap.put(s.Value, s);
             Nodes.AddIn(Words, node);
         }
         else if (TypeName == "Learned")

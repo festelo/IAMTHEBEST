@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javax.xml.transform.TransformerException;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -98,5 +100,12 @@ public class Controller implements Initializable {
             returnStr.add(s);
         }
         return  returnStr;
+    }
+
+    public void refrBtn(ActionEvent actionEvent) throws TransformerException, FileNotFoundException {
+        ACCOUNT.RemoveFromInLearning(ACCOUNT.InLearning);
+        List<String> AddIn = ACCOUNT.GetRandomUnLearnedWords(ACCOUNT.Settings.Words);
+        ACCOUNT.AddIn(AddIn, "InLearning");
+        refresh();
     }
 }
