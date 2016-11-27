@@ -223,55 +223,19 @@
     <ACCOUNT FirstName="Vladimir" LastName="Pavlov" Login="name" Pass="pass">
         <Learned>
             <Word>Window</Word>
-        </Learned>
+        <Word>Nurse</Word>
+</Learned>
         <InLearning>
-            
-            
-            
-            
-            
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<Word Stage="0">Competitor</Word>
-<Word Stage="0">Hello</Word>
+<Word Stage="0">Able</Word>
+<Word Stage="0">Accountant</Word>
+<Word Stage="0">Father</Word>
+<Word Stage="0">Colleague</Word>
 <Word Stage="0">Cousin</Word>
-<Word Stage="0">Hi</Word>
-<Word Stage="0">Chief</Word>
-<Word Stage="0">Aunt</Word>
-<Word Stage="0">Man</Word>
-<Word Stage="0">Waiter</Word>
-<Word Stage="0">Son</Word>
-<Word Stage="0">Neighbor</Word>
+<Word Stage="0">Artist</Word>
+<Word Stage="0">Nephew</Word>
+<Word Stage="0">Niece</Word>
+<Word Stage="0">Acquaintance</Word>
+<Word Stage="0">Grandfather</Word>
 </InLearning>
     </ACCOUNT>
 </XML>

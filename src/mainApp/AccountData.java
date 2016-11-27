@@ -136,12 +136,11 @@ public class AccountData {
                 }
             }
         }
-        public void AddIn(List<String> Words, Node node) throws TransformerException, FileNotFoundException {
+        public void AddInLearned(List<String> Words) throws TransformerException, FileNotFoundException {
             for(String s: Words) {
                 Element Word = document.createElement("Word");
                 Word.appendChild(document.createTextNode(s));
-                Word.setAttribute("Stage", "0");
-                node.appendChild(Word);
+                LearnedNode.appendChild(Word);
             }
             saveXML();
         }
@@ -152,29 +151,28 @@ public class AccountData {
         }
     }
     public void AddIn(List<String> Words, String TypeName) throws TransformerException, FileNotFoundException {
-        Node node;
         if(TypeName == "InLearning")
         {
-            node = Nodes.InLearningNode;
             List<InLearning> inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
-            InLearning.addAll(inLearning);
             inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
-            for(InLearning s : inLearning)
+            for(InLearning s : inLearning) {
                 InLearningMap.put(s.Value, s);
-            Nodes.AddIn(Words, node);
+                s.Nodes.AddIn(false);
+            }
+            InLearning.addAll(inLearning);
+            Nodes.saveXML();
         }
         else if (TypeName == "Learned")
         {
-            node = Nodes.LearnedNode;
             Learned.addAll(Words);
-            Nodes.AddIn(Words, node);
+            Nodes.AddInLearned(Words);
         }
     }
     public void RemoveFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException {
-        for(InLearning i : InLearning)
+        for(InLearning i : inLearning)
             InLearningMap.remove(i.Value);
         Nodes.RemoveFromInLearning(inLearning);
-        ACCOUNT.InLearning.removeAll(InLearning);
+        ACCOUNT.InLearning.removeAll(inLearning);
     }
     public List<String> GetRandomUnLearnedWords(int size)
     {
@@ -224,6 +222,15 @@ public class AccountData {
                 Stage = Integer.parseInt(node.getAttributes().getNamedItem("Stage").getNodeValue());
                 Value = node.getFirstChild().getNodeValue();
                 InLearningMap.put(Value, THISil);
+            }
+
+            public void AddIn(Boolean SAVE) throws TransformerException, FileNotFoundException {
+                    Element s = THIS.Nodes.document.createElement("Word");
+                    s.appendChild(THIS.Nodes.document.createTextNode(Value));
+                    s.setAttribute("Stage", "0");
+                    THIS.Nodes.InLearningNode.appendChild(s);
+                if(SAVE)THIS.Nodes.saveXML();
+                this.node = s;
             }
         }
     }

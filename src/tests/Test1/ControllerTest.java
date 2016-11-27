@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 public class ControllerTest implements Initializable {
-    static public ObservableList<TableData> Result = FXCollections.observableArrayList();
+    public ObservableList<TableData> Result = FXCollections.observableArrayList();
     public TableColumn tableViewWord;
     public TableColumn tableViewTranslate;
     public TableView tableView;
@@ -81,8 +81,6 @@ public class ControllerTest implements Initializable {
     }
 
     public void clickOK(ActionEvent actionEvent) throws IOException, TransformerException {
-        if(Main.Words.size() == 0 && Main.Translates.size() == 0)
-        {
             for (TableData td : Result)
             {
                 if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
@@ -97,11 +95,6 @@ public class ControllerTest implements Initializable {
             MainApp.ACCOUNT.Nodes.saveXML();
             Main.result = true;
             Main.Close();
-        }
-        else
-        {
-            OkBtn.setText("Not all!");   //можно вывести это, но лучше не на кнопку
-        }
     }
 
 
