@@ -2,7 +2,6 @@ package mainApp;
 
 import org.w3c.dom.*;
 
-import javax.xml.stream.events.Attribute;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
@@ -230,8 +229,18 @@ public class AccountData {
     public List<String> Learned = new ArrayList<>();
     public List<String> UnLearned = new ArrayList<>();
     public List<InLearning> InLearning = new ArrayList<>();
-    public List<String> SuccessfullList = new ArrayList<>();
-    public List<String> UnSuccesfullList = new ArrayList<>();
+    public AccountData()
+    {
+        SuccessfulList[0] = new ArrayList<String>();
+        SuccessfulList[1] = new ArrayList<String>();
+        SuccessfulList[2] = new ArrayList<String>();
+
+        UnSuccessfulList[0] = new ArrayList<String>();
+        UnSuccessfulList[1] = new ArrayList<String>();
+        UnSuccessfulList[2] = new ArrayList<String>();
+    }
+    public List[] SuccessfulList = new List[3];
+    public List[] UnSuccessfulList = new List[3];
     private Map<String, InLearning> InLearningMap = new HashMap<>();
     static public Map<String, List<String>> WordBase = new HashMap<>();
 }

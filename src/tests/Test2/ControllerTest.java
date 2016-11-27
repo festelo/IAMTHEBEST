@@ -3,7 +3,6 @@ package tests.Test2;
 import javafx.fxml.Initializable;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import mainApp.MainApp;
@@ -32,7 +31,7 @@ public class ControllerTest implements Initializable {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem)) {
                 //MainApp.ACCOUNT.setStage(true, 1);
                 MainApp.ACCOUNT.InLearningGet(Main.Word).upStage();
-                MainApp.ACCOUNT.SuccessfullList.add(Main.Word);
+                MainApp.ACCOUNT.SuccessfulList[1].add(Main.Word);
                 Main.result = true;
                 Main.Close();
             }
@@ -46,7 +45,7 @@ public class ControllerTest implements Initializable {
             if(MainApp.ACCOUNT.WordBase.get(selectedItem).contains(Main.Word))
             {
                 MainApp.ACCOUNT.InLearningGet(selectedItem).upStage();
-                MainApp.ACCOUNT.SuccessfullList.add(Main.Word);
+                MainApp.ACCOUNT.SuccessfulList[2].add(Main.Word);
                 Main.result = true;
                 Main.Close();
             }
