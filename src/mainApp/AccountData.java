@@ -64,7 +64,7 @@ public class AccountData {
         public Node LearnedNode;
         public Node AccountNode;
 
-        private void saveXML() throws TransformerException, FileNotFoundException {
+        public void saveXML() throws TransformerException, FileNotFoundException {
             Transformer t= TransformerFactory.newInstance().newTransformer();
             t.setOutputProperty(OutputKeys.METHOD, "xml");
             t.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -183,6 +183,7 @@ public class AccountData {
         }
         return  AddInLearning;
     }
+
     public class InLearning
     {
         public int Stage;
@@ -196,7 +197,12 @@ public class AccountData {
 
         public void upStage() throws TransformerException, FileNotFoundException {
             this.Stage++;
-            Nodes.SaveStage(Stage);
+            Nodes.SaveStage(Stage, true);
+        }
+
+        public void upStage(boolean SAVE) throws TransformerException, FileNotFoundException {
+            this.Stage++;
+            Nodes.SaveStage(Stage, SAVE);
         }
         public int getStage() { return Stage; }
 
@@ -204,9 +210,9 @@ public class AccountData {
         {
             public Node node;
 
-            public void SaveStage(int Stage) throws TransformerException, FileNotFoundException {
+            public void SaveStage(int Stage, boolean SAVE) throws TransformerException, FileNotFoundException {
                 node.getAttributes().getNamedItem("Stage").setNodeValue(Integer.toString(Stage));
-                THIS.Nodes.saveXML();
+                if(SAVE) THIS.Nodes.saveXML();
             }
             public void Parse(Node node)
             {
@@ -220,6 +226,13 @@ public class AccountData {
     public InLearning InLearningGet(String Word)
     {
         return InLearningMap.get(Word);
+    }
+    public List<InLearning> InLearningGet(List<String> Word)
+    {
+        List<InLearning> inLearningList = new ArrayList<>();
+        for(String s : Word)
+            inLearningList.add(InLearningMap.get(s));
+        return inLearningList;
     }
     public static String Path = "a.xml";
     public Settings Settings = new Settings();

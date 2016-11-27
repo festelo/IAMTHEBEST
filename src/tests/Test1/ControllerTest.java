@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import mainApp.AccountData;
 import mainApp.MainApp;
 import mainApp.TableData;
 
@@ -86,15 +87,14 @@ public class ControllerTest implements Initializable {
             {
                 if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
                 {
-                    Main.InCorrectWords.add(td.getWord());
                     MainApp.ACCOUNT.UnSuccessfulList[0].add(td.getWord());
                 }
                 else {
-                    Main.CorrectWords.add(td.getWord());
-                    MainApp.ACCOUNT.InLearningGet(td.getWord()).upStage();
+                    MainApp.ACCOUNT.InLearningGet(td.getWord()).upStage(false);
                     MainApp.ACCOUNT.SuccessfulList[0].add(td.getWord());
                 }
             }
+            MainApp.ACCOUNT.Nodes.saveXML();
             Main.result = true;
             Main.Close();
         }

@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import mainApp.AccountData;
 import mainApp.MainApp;
 
 import java.net.URL;
@@ -29,8 +30,12 @@ public class ControllerTest implements Initializable {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
         if(Main.Test == 1) {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem)) {
-                //MainApp.ACCOUNT.setStage(true, 1);
-                MainApp.ACCOUNT.InLearningGet(Main.Word).upStage();
+                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage(false);
+                for(AccountData.InLearning s : MainApp.ACCOUNT.InLearningGet(Main.Translates))
+                {
+                    s.upStage(false);
+                }
+                MainApp.ACCOUNT.Nodes.saveXML();
                 MainApp.ACCOUNT.SuccessfulList[1].add(Main.Word);
                 Main.result = true;
                 Main.Close();
@@ -44,7 +49,12 @@ public class ControllerTest implements Initializable {
         else{
             if(MainApp.ACCOUNT.WordBase.get(selectedItem).contains(Main.Word))
             {
-                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage();
+                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage(false);
+                for(AccountData.InLearning s : MainApp.ACCOUNT.InLearningGet(Main.Translates))
+                {
+                    s.upStage(false);
+                }
+                MainApp.ACCOUNT.Nodes.saveXML();
                 MainApp.ACCOUNT.SuccessfulList[2].add(Main.Word);
                 Main.result = true;
                 Main.Close();
