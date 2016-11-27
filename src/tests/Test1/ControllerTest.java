@@ -88,15 +88,13 @@ public class ControllerTest implements Initializable {
             {
                 if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
                 {
-                    OkBtn.setText("No!");
-                    return;
+                    Main.InCorrectWords.add(td.getWord());
+                }
+                else {
+                    Main.CorrectWords.add(td.getWord());
+                    MainApp.ACCOUNT.InLearningGet(td.getWord()).upStage();
                 }
             }
-
-            /*
-                подсчитать правильные ответы и неправильные
-            */
-            MainApp.ACCOUNT.setStage(1);
             Main.result = true;
             Main.Close();
         }

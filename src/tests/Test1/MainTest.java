@@ -11,6 +11,9 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class MainTest {
+    public List<String> CorrectWords;
+    public List<String> InCorrectWords;
+
     public ObservableList<String> Words = FXCollections.observableArrayList();
     public ObservableList<String> Translates = FXCollections.observableArrayList();
     public boolean result = false;

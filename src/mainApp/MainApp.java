@@ -10,7 +10,7 @@ public class MainApp {
 
     static public AccountData ACCOUNT;
     public Stage primaryStageMain;
-
+    public Controller Controller;
 
     public MainApp(Document doc, int ID) throws Exception{
         ACCOUNT = new AccountData();

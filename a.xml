@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <XML>
+    <Settings>
+        <Tests>3</Tests>
+        <Words>15</Words>
+    </Settings>
     <GlobalDictionary>
         <Word Original="Say">
             <Translate>Говорить</Translate>
@@ -220,12 +224,12 @@
         <Learned>
             <Word>Window</Word>
         </Learned>
-        <InLearning Stage="2">
-            <Word>Arm</Word>
-            <Word>Apple</Word>
-            <Word>Above</Word>
-            <Word>Able</Word>
-            <Word>Woman</Word>
+        <InLearning>
+            <Word Stage="000">Arm</Word>
+            <Word Stage="000">Apple</Word>
+            <Word Stage="000">Above</Word>
+            <Word Stage="000">Able</Word>
+            <Word Stage="000">Woman</Word>
         </InLearning>
     </ACCOUNT>
 </XML>

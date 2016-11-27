@@ -28,21 +28,32 @@ public class ControllerTest implements Initializable {
 
     public void clickOK(ActionEvent ev) throws Exception {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
-        if(Main.Test == 2) {
+        if(Main.Test == 1) {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem)) {
-                MainApp.ACCOUNT.setStage(2);
+                //MainApp.ACCOUNT.setStage(true, 1);
+                MainApp.ACCOUNT.InLearningGet(Main.Word).upStage();
                 Main.result = true;
                 Main.Close();
             }
-            else ((Button)ev.getSource()).setText("No!");
+            else
+                {
+                    Main.result = false;
+                    Main.Close();
+                }
         }
         else{
             if(MainApp.ACCOUNT.WordBase.get(selectedItem).contains(Main.Word))
             {
+                //MainApp.ACCOUNT.setStage(true, 2);
                 Main.result = true;
                 Main.Close();
             }
-            else ((Button)ev.getSource()).setText("No!");
+            else
+                {
+                    MainApp.ACCOUNT.InLearningGet(selectedItem).upStage();
+                    Main.result = false;
+                    Main.Close();
+                }
         }
     }
 }

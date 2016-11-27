@@ -3,8 +3,7 @@ package mainApp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
@@ -17,12 +16,30 @@ import static mainApp.MainApp.ACCOUNT;
 
 public class Controller implements Initializable {
     public void testBtn(ActionEvent actionEvent) throws Exception {
-        new tests.Tests(Main.primaryStageMain);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Выбор теста.");
+        alert.setHeaderText("Выберите номер теста.");
+
+        ButtonType buttonTypeOne = new ButtonType("First");
+        ButtonType buttonTypeTwo = new ButtonType("Second");
+        ButtonType buttonTypeThree = new ButtonType("Third");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne){
+            new tests.Tests(Main, 0);
+        } else if (result.get() == buttonTypeTwo) {
+            new tests.Tests(Main, 1);
+        } else if (result.get() == buttonTypeThree) {
+            new tests.Tests(Main, 2);
+        }
     }
     MainApp Main;
     public Controller(MainApp app)
     {
         Main = app;
+        app.Controller = this;
     }
 
     @FXML
@@ -57,10 +74,14 @@ public class Controller implements Initializable {
 
         InLearningTableWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         InLearningTableTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
-
-        InLearningTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.InLearning));
-        LearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.Learned));
         ACCOUNT.UnLearned = GETUnlearned();
+        refresh();
+    }
+
+    public void refresh()
+    {
+        InLearningTable.setItems(TableData.ToTableData.ToTableDataListFromInLearning(MainApp.ACCOUNT.InLearning));
+        LearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.Learned));
         UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.UnLearned));
     }
 

@@ -28,9 +28,8 @@ public class MainTest {
 
         result = false;
         thisStage = new Stage();
-        if(Test == 1) thisStage.setTitle("First Test");
-        else if(Test == 2) thisStage.setTitle("Second Test");
-        else if(Test == 3) thisStage.setTitle("Third Test");
+        if(Test == 1) thisStage.setTitle("Second Test");
+        else if(Test == 2) thisStage.setTitle("Third Test");
         ControllerTest test = new ControllerTest(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
         loader.setController(test);

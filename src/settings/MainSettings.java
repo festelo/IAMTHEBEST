@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static tests.Test1.MainTest.onClosing;
 
-public class MainSettings extends Application {
+public class MainSettings{
 
 
     private Stage currentStage;
@@ -18,20 +18,18 @@ public class MainSettings extends Application {
     public MainSettings(Stage primaryStageMain) throws IOException {
         primaryStageMain.hide();
         currentStage = new Stage();
-        Parent rootSettings = FXMLLoader.load(getClass().getResource("settings.fxml"));
         currentStage.setTitle("Settings");
-        currentStage.setScene(new Scene(rootSettings));
+        ControllerSettings controllerSettings = new ControllerSettings(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
+        loader.setController(controllerSettings);
+        Parent rootMain = loader.load();
+        currentStage.setScene(new Scene(rootMain));
         currentStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
+        currentStage.setResizable(false);
         currentStage.showAndWait();
 
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStageSettings) {
-
+    public  void Close() {
+        currentStage.close();
     }
 }

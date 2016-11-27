@@ -23,6 +23,22 @@ public class TableData
             }
             return toReturn;
         }
+
+
+        public static ObservableList<TableData> ToTableDataListFromInLearning(List<AccountData.InLearning> list)
+        {
+            ObservableList<TableData> toReturn = FXCollections.observableArrayList();;
+            for (AccountData.InLearning s: list)
+            {
+                String TEMPString = "";
+                for(String a: MainApp.ACCOUNT.WordBase.get(s.getValue()))
+                    TEMPString += a + ", ";
+                if(TEMPString != "")
+                    TEMPString = TEMPString.substring(0, TEMPString.length()-2);
+                toReturn.add(new TableData(s.getValue(), TEMPString));
+            }
+            return toReturn;
+        }
     }
 
     private String Word;

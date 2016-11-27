@@ -1,24 +1,37 @@
 package settings;
+import javafx.scene.control.TextField;
 import mainApp.AccountData;
+import mainApp.MainApp;
 import sample.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import tests.Tests;
+
+import javax.xml.transform.TransformerException;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.*;
 
 public class ControllerSettings implements Initializable {
-    static AccountData ACCOUNT;
-    static Map<String, List<String>> WordBase = new HashMap<>();
+    public TextField TestsTF;
+    public TextField WordsTF;
+    MainSettings mainSettings;
 
-    public int numberOfWordsToLearn;        //кол-во слов, которое нужно учить за 1 тест
+    public ControllerSettings(MainSettings mainSettings)
+    {
+       this.mainSettings = mainSettings;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
-    public void getNumber() {
-        //Получить кол-во слов, которое нужно учить за 1 тест (ChoiseBox)
+    public void Save(ActionEvent actionEvent) throws TransformerException, FileNotFoundException {
+        int Words = Integer.parseInt(WordsTF.getText());
+        int Tests = Integer.parseInt(TestsTF.getText());
+        MainApp.ACCOUNT.Settings.Save(Words, Tests);
+        mainSettings.Close();
     }
 }
