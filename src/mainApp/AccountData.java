@@ -230,6 +230,8 @@ public class AccountData {
     public List<String> Learned = new ArrayList<>();
     public List<String> UnLearned = new ArrayList<>();
     public List<InLearning> InLearning = new ArrayList<>();
+    public List<String> SuccessfullList = new ArrayList<>();
+    public List<String> UnSuccesfullList = new ArrayList<>();
     private Map<String, InLearning> InLearningMap = new HashMap<>();
     static public Map<String, List<String>> WordBase = new HashMap<>();
 }

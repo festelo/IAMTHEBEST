@@ -32,6 +32,7 @@ public class ControllerTest implements Initializable {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem)) {
                 //MainApp.ACCOUNT.setStage(true, 1);
                 MainApp.ACCOUNT.InLearningGet(Main.Word).upStage();
+                MainApp.ACCOUNT.SuccessfullList.add(Main.Word);
                 Main.result = true;
                 Main.Close();
             }
@@ -44,13 +45,13 @@ public class ControllerTest implements Initializable {
         else{
             if(MainApp.ACCOUNT.WordBase.get(selectedItem).contains(Main.Word))
             {
-                //MainApp.ACCOUNT.setStage(true, 2);
+                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage();
+                MainApp.ACCOUNT.SuccessfullList.add(Main.Word);
                 Main.result = true;
                 Main.Close();
             }
             else
                 {
-                    MainApp.ACCOUNT.InLearningGet(selectedItem).upStage();
                     Main.result = false;
                     Main.Close();
                 }

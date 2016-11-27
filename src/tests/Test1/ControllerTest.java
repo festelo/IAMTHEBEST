@@ -89,10 +89,12 @@ public class ControllerTest implements Initializable {
                 if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
                 {
                     Main.InCorrectWords.add(td.getWord());
+                    MainApp.ACCOUNT.UnSuccesfullList.add(td.getWord());
                 }
                 else {
                     Main.CorrectWords.add(td.getWord());
                     MainApp.ACCOUNT.InLearningGet(td.getWord()).upStage();
+                    MainApp.ACCOUNT.SuccessfullList.add(td.getWord());
                 }
             }
             Main.result = true;
