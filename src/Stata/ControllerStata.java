@@ -1,5 +1,8 @@
 package Stata;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,9 +36,17 @@ public class ControllerStata implements Initializable {
     public TableColumn wrongAnswersWord;
     @FXML
     public TableColumn wrongAnswersTranslate;
+    @FXML
+    public ComboBox combo;
+
+    String[] ComboNames = { "Первый тест", "Второй тест", "Третий тест"};
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> LIST = FXCollections.observableArrayList();
+        LIST.addAll(ComboNames);
+        combo.setItems(LIST);
+        combo.getSelectionModel().selectFirst();
 
         rightAnswersWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         rightAnswersTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
@@ -48,5 +59,11 @@ public class ControllerStata implements Initializable {
     public void refresh(int NUMofTest) {
         rightAnswers.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.SuccessfulList[NUMofTest]));
         wrongAnswers.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.UnSuccessfulList[NUMofTest]));
+    }
+
+    public void Combo(ActionEvent actionEvent) {
+        if(combo.getValue() == ComboNames[0]) refresh(0);
+        else if(combo.getValue() == ComboNames[1]) refresh(1);
+        else if(combo.getValue() == ComboNames[2]) refresh(2);
     }
 }

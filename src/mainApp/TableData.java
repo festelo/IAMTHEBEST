@@ -10,7 +10,7 @@ public class TableData
     {
         public static ObservableList<TableData> ToTableDataList(List<String> list)
         {
-            ObservableList<TableData> toReturn = FXCollections.observableArrayList();;
+            ObservableList<TableData> toReturn = FXCollections.observableArrayList();
             for (String s: list)
             {
                 String TEMPString = "";

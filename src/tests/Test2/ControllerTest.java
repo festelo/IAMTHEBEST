@@ -31,7 +31,7 @@ public class ControllerTest implements Initializable {
         String selectedItem = listView.getSelectionModel().getSelectedItem();
         if(Main.Test == 1) {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem)) {
-                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage(false);
+                MainApp.ACCOUNT.InLearningGet(Main.Word).upStage(false);
                 for(AccountData.InLearning s : MainApp.ACCOUNT.InLearningGet(Main.Translates))
                 {
                     s.upStage(false);
@@ -43,6 +43,7 @@ public class ControllerTest implements Initializable {
             }
             else
                 {
+                    MainApp.ACCOUNT.UnSuccessfulList[1].add(Main.Word);
                     Main.result = false;
                     Main.Close();
                 }
@@ -56,13 +57,13 @@ public class ControllerTest implements Initializable {
                     s.upStage(false);
                 }
                 MainApp.ACCOUNT.Nodes.saveXML();
-                MainApp.ACCOUNT.SuccessfulList[2].add(Main.Word);
+                MainApp.ACCOUNT.SuccessfulList[2].add(selectedItem);
                 Main.result = true;
                 Main.Close();
             }
             else
                 {
-                    MainApp.ACCOUNT.UnSuccessfulList[2].add(Main.Word);
+                    MainApp.ACCOUNT.UnSuccessfulList[2].add(selectedItem);
                     Main.result = false;
                     Main.Close();
                 }
