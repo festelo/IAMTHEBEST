@@ -32,6 +32,7 @@ public class MainSettings{
         currentStage.showAndWait();
 
     }
+
     public  void Close() {
         currentStage.close();
         primaryStageMain.show();

@@ -108,4 +108,10 @@ public class Controller implements Initializable {
         ACCOUNT.AddIn(AddIn, "InLearning");
         refresh();
     }
+
+    public void stataBtn(ActionEvent actionEvent) throws IOException{
+        new Stata.MainStata(Main.primaryStageMain);
+    }
+
+
 }

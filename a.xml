@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><XML>
     <Settings>
-        <Tests>2</Tests>
-        <Words>10</Words>
+        <Tests>1</Tests>
+        <Words>12</Words>
     </Settings>
     <GlobalDictionary>
         <Word Original="Say">
@@ -223,4 +223,4 @@
         <Learned/>
         <InLearning/>
     </ACCOUNT>
-<ACCOUNT Login="qwe1" Pass="qwe1"><InLearning/><Learned/></ACCOUNT></XML>
+<ACCOUNT Login="qwe1" Pass="qwe1"><InLearning/><Learned/></ACCOUNT><ACCOUNT Login="" Pass=""><InLearning><Word Stage="0">Little (less, least)</Word><Word Stage="0">Beneath</Word><Word Stage="0">Mistake</Word><Word Stage="0">All over</Word><Word Stage="0">Sheer</Word><Word Stage="0">Contrast</Word><Word Stage="0">Cowardice</Word><Word Stage="0">Groan</Word><Word Stage="0">Fall (fell, fallen) out</Word><Word Stage="0">Might yet</Word></InLearning><Learned/></ACCOUNT><ACCOUNT Login="14" Pass="88"><InLearning><Word Stage="0">Grimly</Word><Word Stage="0">Deserted</Word><Word Stage="0">Particular</Word><Word Stage="0">Back of head</Word><Word Stage="0">Great fire</Word><Word Stage="0">At least</Word><Word Stage="0">Feeble</Word><Word Stage="0">Might yet</Word><Word Stage="0">Set (set, set)</Word><Word Stage="0">Light</Word><Word Stage="0">Tramp</Word><Word Stage="0">Cease</Word></InLearning><Learned><Word>King</Word><Word>Great care</Word><Word>Rather high</Word><Word>Enemy</Word><Word>Furniture</Word><Word>Sheath</Word><Word>Log-house</Word><Word>Lumber</Word></Learned></ACCOUNT></XML>

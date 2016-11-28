@@ -8,20 +8,34 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import static tests.Test1.MainTest.onClosing;
+
 public class MainStata extends Application {
 
-    public MainStata(Stage primaryStageStata) throws IOException {
-        Parent rootStata = FXMLLoader.load(getClass().getResource("stata.fxml"));
-        primaryStageStata.setTitle("Statistics");
-        primaryStageStata.setScene(new Scene(rootStata));
+    private Stage currentStage;
+    private Stage primaryStageMain;
+
+    public MainStata(Stage primaryStageMain) throws IOException {
+        this.primaryStageMain = primaryStageMain;
+        primaryStageMain.hide();
+        currentStage = new Stage();
+        currentStage.setTitle("Statistic");
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("stata.fxml"));
+        Parent rootMain = loader.load();
+        currentStage.setScene(new Scene(rootMain));
+        currentStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
+        currentStage.setResizable(false);
+        currentStage.showAndWait();
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public  void Close() {
+        currentStage.close();
+        primaryStageMain.show();
     }
 
     @Override
-    public void start(Stage primaryStageStata) {
+    public void start(Stage primaryStage) throws Exception {
 
     }
 }
