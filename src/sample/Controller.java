@@ -81,6 +81,17 @@ public class Controller implements Initializable {
         if(PasswordText.getText() == "" || LoginText.getText() == "") return;
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
         Document document = documentBuilder.parse(AccountData.Path);
+        NodeList Accounts = document.getElementsByTagName("ACCOUNT");
+        for (int i = 0; i<Accounts.getLength(); i++) {
+            if(Accounts.item(i).getAttributes().getNamedItem("Login").getNodeValue().equals(LoginText.getText()))
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Login used");
+                alert.show();
+                return;
+            }
+        }
         Element node = document.createElement("ACCOUNT");
         node.setAttribute("Login", LoginText.getText());
         node.setAttribute("Pass", PasswordText.getText());
@@ -93,7 +104,7 @@ public class Controller implements Initializable {
         //t.setOutputProperty(OutputKeys.METHOD, "xml");
         //t.setOutputProperty(OutputKeys.INDENT, "yes");
         t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(AccountData.Path)));
-        new MainApp(document, document.getElementsByTagName("ACCOUNT").getLength()-1);
+        new MainApp(document, Accounts.getLength()-1);
     }
 
     private void showDialog() {
