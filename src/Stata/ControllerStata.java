@@ -36,16 +36,13 @@ public class ControllerStata implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void click(ActionEvent actionEvent) {
         rightAnswersWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         rightAnswersTranslate.setCellFactory(new PropertyValueFactory<TableData, String>("Translate"));
 
         wrongAnswersWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         wrongAnswersTranslate.setCellFactory(new PropertyValueFactory<TableData, String>("Translate"));
+        refresh(0);
     }
-
 
     public void refresh(int NUMofTest) {
         rightAnswers.setItems(TableData.ToTableData.ToTableDataList(ACCOUNT.SuccessfulList[NUMofTest]));
