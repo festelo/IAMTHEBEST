@@ -16,33 +16,10 @@ import static mainApp.AccountData.WordBase;
 import static mainApp.MainApp.ACCOUNT;
 
 
-public class Controller implements Initializable {
-    public void testBtn(ActionEvent actionEvent) throws Exception {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Выбор теста.");
-        alert.setHeaderText("Выберите номер теста.");
+public class Controller implements Initializable
+{
 
-        ButtonType buttonTypeOne = new ButtonType("First");
-        ButtonType buttonTypeTwo = new ButtonType("Second");
-        ButtonType buttonTypeThree = new ButtonType("Third");
-        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
-
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == buttonTypeOne){
-            new tests.Tests(Main, 0);
-        } else if (result.get() == buttonTypeTwo) {
-            new tests.Tests(Main, 1);
-        } else if (result.get() == buttonTypeThree) {
-            new tests.Tests(Main, 2);
-        }
-    }
     MainApp Main;
-    public Controller(MainApp app)
-    {
-        Main = app;
-        app.Controller = this;
-    }
 
     @FXML
     private TableView<TableData> LearnedTable;
@@ -66,8 +43,45 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn InLearningTableTranslate;
 
+    //Открытие окошка с тестами
+    public void testBtn(ActionEvent actionEvent) throws Exception
+    {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Testing");
+        alert.setHeaderText("Choose test");
+
+        //Создание самих кнопок
+        ButtonType buttonTypeOne = new ButtonType("First");
+        ButtonType buttonTypeTwo = new ButtonType("Second");
+        ButtonType buttonTypeThree = new ButtonType("Third");
+        ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+        alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeThree, buttonTypeCancel);
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == buttonTypeOne)
+        {
+            new tests.Tests(Main, 0);
+        } else if (result.get() == buttonTypeTwo)
+        {
+            new tests.Tests(Main, 1);
+        } else if (result.get() == buttonTypeThree)
+        {
+            new tests.Tests(Main, 2);
+        }
+    }
+
+    //Конструктор
+    public Controller(MainApp app)
+    {
+        Main = app;
+        app.Controller = this;
+    }
+
+
+    //Добавление изученный, изучаемых и неизученных слов в таблицы
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources)
+    {
         LearnedTableWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         LearnedTableTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
 
@@ -76,7 +90,7 @@ public class Controller implements Initializable {
 
         InLearningTableWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
         InLearningTableTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
-        ACCOUNT.UnLearned = GETUnlearned();
+        ACCOUNT.UnLearned = getUnlearned();
         refresh();
     }
 
@@ -87,11 +101,15 @@ public class Controller implements Initializable {
         UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.UnLearned));
     }
 
-    public void settingsBtn(ActionEvent actionEvent) throws IOException {
+
+    //Открытие настроек
+    public void settingsBtn(ActionEvent actionEvent) throws IOException
+    {
         new settings.MainSettings(Main.primaryStageMain);
     }
 
-    public List<String> GETUnlearned()
+    //Получение невыученных слов
+    public List<String> getUnlearned()
     {
         List<String> returnStr = new ArrayList<>();
         for(String s : WordBase.keySet())
@@ -102,14 +120,18 @@ public class Controller implements Initializable {
         return  returnStr;
     }
 
-    public void refrBtn(ActionEvent actionEvent) throws TransformerException, FileNotFoundException {
+    //Кнопка обновления
+    public void refrBtn(ActionEvent actionEvent) throws TransformerException, FileNotFoundException
+    {
         ACCOUNT.RemoveFromInLearning(ACCOUNT.InLearning);
         List<String> AddIn = ACCOUNT.GetRandomUnLearnedWords(ACCOUNT.Settings.Words);
         ACCOUNT.AddIn(AddIn, "InLearning");
         refresh();
     }
 
-    public void stataBtn(ActionEvent actionEvent) throws IOException{
+    //Открытие статистики
+    public void stataBtn(ActionEvent actionEvent) throws IOException
+    {
         new Stata.MainStata(Main.primaryStageMain);
     }
 

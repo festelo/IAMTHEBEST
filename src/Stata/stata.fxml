@@ -33,6 +33,6 @@
       </TableView>
       <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Правильные ответы" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Неправильные ответы" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <ComboBox fx:id="combo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2" onAction="#Combo"/>
+      <ComboBox fx:id="combo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnSpan="2" onAction="#makeCombinations"/>
    </children>
 </GridPane>

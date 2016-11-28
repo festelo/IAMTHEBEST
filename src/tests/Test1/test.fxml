@@ -19,14 +19,14 @@
           <RowConstraints maxHeight="20.0" minHeight="20.0" percentHeight="0.0" prefHeight="20.0" vgrow="NEVER" />
       </rowConstraints>
       <children>
-          <ListView fx:id="ListViewWords" onMouseClicked="#ListViewClicked" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2" />
-          <ListView fx:id="ListViewTranslates" onMouseClicked="#ListViewClicked" prefHeight="407.0" prefWidth="182.0" GridPane.columnIndex="2" GridPane.rowSpan="2" />
+          <ListView fx:id="ListViewWords" onMouseClicked="#listViewClicked" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="2" />
+          <ListView fx:id="ListViewTranslates" onMouseClicked="#listViewClicked" prefHeight="407.0" prefWidth="182.0" GridPane.columnIndex="2" GridPane.rowSpan="2" />
           <TableView fx:id="tableView" onMouseClicked="#tableViewClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
               <columns>
                   <TableColumn fx:id="tableViewWord" minWidth="120.0" prefWidth="-1.0" text="Слово" />
                   <TableColumn fx:id="tableViewTranslate" minWidth="120.0" prefWidth="-1.0" text="Перевод" />
               </columns>
           </TableView>
-          <Button fx:id="OkBtn" alignment="CENTER" mnemonicParsing="false" onAction="#clickOK" prefHeight="25.0" prefWidth="666.0" text="NEXT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+          <Button fx:id="OkBtn" alignment="CENTER" mnemonicParsing="false" onAction="#clickNext" prefHeight="25.0" prefWidth="666.0" text="NEXT" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       </children>
   </GridPane>

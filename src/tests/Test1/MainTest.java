@@ -2,7 +2,6 @@ package tests.Test1;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,8 +14,11 @@ public class MainTest {
     public ObservableList<String> Words = FXCollections.observableArrayList();
     public ObservableList<String> Translates = FXCollections.observableArrayList();
     public boolean result = false;
+
     Stage primaryStageMain;
     Stage thisStage;
+
+    //Создание окна
     public MainTest(Stage primaryStageMain, List<String> Words, List<String> Translates) throws Exception {
         this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
@@ -36,10 +38,13 @@ public class MainTest {
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         thisStage.showAndWait();
     }
+
+    //Закрытие окна
     public static void onClosing(Stage primaryStageMain)
     {
         primaryStageMain.show();
     }
+
     public void Close()
     {
         onClosing(primaryStageMain);

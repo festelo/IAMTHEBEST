@@ -1,12 +1,7 @@
 package tests;
 
-import javafx.scene.transform.Translate;
-import javafx.stage.Stage;
 import mainApp.AccountData;
 import mainApp.MainApp;
-import sample.Main;
-import tests.Test2.MainTest;
-
 import javax.xml.transform.TransformerException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -15,10 +10,13 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
+import tests.Test2.MainTest;
 import static mainApp.AccountData.WordBase;
 import static mainApp.MainApp.ACCOUNT;
 
 public class Tests {
+
+    //Создание первого теста
     public void FirstTest(MainApp main) throws Exception {
         List<String> Words = ACCOUNT.InLearning.stream().map(s -> s.getValue()).collect(Collectors.toList());
         List<String> Translates = new ArrayList<>();
@@ -36,6 +34,7 @@ public class Tests {
         CheckLearning(main);
     }
 
+    //Создание второго теста
     public void SecondTest(MainApp main) throws Exception{
         Random rand = new Random();
         String Word =
@@ -53,6 +52,7 @@ public class Tests {
         CheckLearning(main);
     }
 
+    //Создание третьего теста
     public void ThirdTest(MainApp main) throws Exception{
         Random rand = new Random();
         String Word =
@@ -67,6 +67,7 @@ public class Tests {
         new MainTest(main.primaryStageMain, Translate, Words, 2);
         CheckLearning(main);
     }
+
     public Tests(MainApp main, int Test) throws Exception
     {
         switch(Test)
@@ -82,11 +83,13 @@ public class Tests {
                 break;
         }
     }
+
     public List<AccountData.InLearning> GetCompletes()
     {
         List<AccountData.InLearning> returnList = ACCOUNT.InLearning.stream().filter(s -> s.Stage == ACCOUNT.Settings.Tests).collect(Collectors.toList());
         return returnList;
     }
+
     public void CheckLearning(MainApp main) throws TransformerException, FileNotFoundException {
         List<AccountData.InLearning> completes = GetCompletes();
         List<String> strings = completes.stream().map(s -> s.getValue()).collect(Collectors.toList());
@@ -97,4 +100,6 @@ public class Tests {
         ACCOUNT.UnLearned.removeAll(AddIn);
         main.Controller.refresh();
     }
+
+
 }

@@ -7,10 +7,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.Collections;
 import java.util.List;
 
-public class MainTest {
+public class MainTest
+{
 
     public boolean result;
     public int Test;
@@ -19,7 +19,10 @@ public class MainTest {
     public ObservableList<String> Translates = FXCollections.observableArrayList();
     private Stage thisStage;
     private Stage primaryStageMain;
-    public MainTest(Stage primaryStageMain, String Word, List<String> Translates, int Test) throws Exception {
+
+    //Создание окна
+    public MainTest(Stage primaryStageMain, String Word, List<String> Translates, int Test) throws Exception
+    {
         this.Test = Test;
         primaryStageMain.hide();
         this.primaryStageMain = primaryStageMain;
@@ -38,11 +41,12 @@ public class MainTest {
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         thisStage.showAndWait();
     }
+
+    //Закрытие окна
     public void onClosing(Stage primaryStageMain)
     {
         primaryStageMain.show();
     }
-
 
     public void Close()
     {

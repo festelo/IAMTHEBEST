@@ -1,6 +1,5 @@
 package settings;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,13 +9,15 @@ import java.io.IOException;
 
 import static tests.Test1.MainTest.onClosing;
 
-public class MainSettings{
-
+public class MainSettings
+{
 
     private Stage currentStage;
     private Stage primaryStageMain;
 
-    public MainSettings(Stage primaryStageMain) throws IOException {
+    //Создание окна настроек
+    public MainSettings(Stage primaryStageMain) throws IOException
+    {
         this.primaryStageMain = primaryStageMain;
         primaryStageMain.hide();
         currentStage = new Stage();
@@ -33,8 +34,11 @@ public class MainSettings{
 
     }
 
-    public  void Close() {
+    //Закрытие настроек
+    public void Close() {
         currentStage.close();
         primaryStageMain.show();
     }
+
+
 }

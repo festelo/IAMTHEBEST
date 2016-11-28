@@ -21,7 +21,7 @@
       <Label text="Кол-во ответов для слова:" />
       <TextField fx:id="TestsTF" GridPane.columnIndex="1" />
       <Label text="Кол-во изучаемых слов:" GridPane.rowIndex="1" />
-      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Save" text="Save" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+      <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#save" text="Save" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
       <TextField fx:id="WordsTF" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    </children>
 </GridPane>

@@ -6,10 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application
+{
+
     public Stage primaryStage;
+
+    //Создание окошка авторизации и регистрации
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception
+    {
         Controller controller = new Controller(this);
         this.primaryStage = primaryStage;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
@@ -20,7 +25,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    //Точка входа
     public static void main(String[] args) {
         launch(args);
     }
+
+
 }

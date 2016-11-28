@@ -6,13 +6,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
 
-public class MainApp {
+public class MainApp
+{
 
     static public AccountData ACCOUNT;
+
     public Stage primaryStageMain;
     public Controller Controller;
 
-    public MainApp(Document doc, int ID) throws Exception{
+    //Создание главного окна
+    public MainApp(Document doc, int ID) throws Exception
+    {
         ACCOUNT = new AccountData();
         ACCOUNT.Nodes.Parse(doc, ID);
         primaryStageMain = new Stage();
@@ -23,7 +27,7 @@ public class MainApp {
         primaryStageMain.setTitle("Learn English");
         primaryStageMain.setScene(new Scene(root));
         primaryStageMain.show();
-
     }
+
 
 }
