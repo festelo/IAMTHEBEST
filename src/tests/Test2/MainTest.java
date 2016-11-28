@@ -34,7 +34,7 @@ public class MainTest {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("test.fxml"));
         loader.setController(test);
         Parent rootMain = loader.load();
-        thisStage.setScene(new Scene(rootMain));
+        thisStage.setScene(new Scene(rootMain));//Ы
         thisStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         thisStage.showAndWait();
     }
