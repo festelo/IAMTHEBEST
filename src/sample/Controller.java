@@ -32,7 +32,7 @@ public class Controller implements Initializable {
 
     public class mapData
     {
-        public String password;
+        public String password;//Пароль
         public Integer id;
         public mapData(String password, int id)
         {
