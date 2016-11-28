@@ -14,8 +14,9 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.*;
 
+import static mainApp.MainApp.ACCOUNT;
+
 public class ControllerStata implements Initializable {
-    static AccountData ACCOUNT;
     static Map<String, List<String>> WordBase = new HashMap<>();
 
     @FXML
@@ -37,10 +38,10 @@ public class ControllerStata implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         rightAnswersWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
-        rightAnswersTranslate.setCellFactory(new PropertyValueFactory<TableData, String>("Translate"));
+        rightAnswersTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
 
         wrongAnswersWord.setCellValueFactory(new PropertyValueFactory<TableData, String>("Word"));
-        wrongAnswersTranslate.setCellFactory(new PropertyValueFactory<TableData, String>("Translate"));
+        wrongAnswersTranslate.setCellValueFactory(new PropertyValueFactory<TableData, String>("Translates"));
         refresh(0);
     }
 

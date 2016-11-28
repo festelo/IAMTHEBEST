@@ -37,9 +37,4 @@ public class MainStata {
         currentStage.setResizable(false);
         currentStage.showAndWait();
     }
-
-    public  void Close() {
-        currentStage.close();
-        primaryStageMain.show();
-    }
 }
