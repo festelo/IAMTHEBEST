@@ -66,8 +66,8 @@ public class AccountData {
 
         public void saveXML() throws TransformerException, FileNotFoundException {
             Transformer t= TransformerFactory.newInstance().newTransformer();
-            t.setOutputProperty(OutputKeys.METHOD, "xml");
-            t.setOutputProperty(OutputKeys.INDENT, "yes");
+            //t.setOutputProperty(OutputKeys.METHOD, "xml");
+            //t.setOutputProperty(OutputKeys.INDENT, "yes");
             t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(Path)));
         }
 
@@ -97,8 +97,8 @@ public class AccountData {
             }
             AccountNode = DataNode;
             NamedNodeMap nmap = DataNode.getAttributes();
-            FirstName = nmap.getNamedItem("FirstName").getNodeValue();
-            LastName = nmap.getNamedItem("LastName").getNodeValue();
+            //FirstName = nmap.getNamedItem("FirstName").getNodeValue();
+            //LastName = nmap.getNamedItem("LastName").getNodeValue();
 
             nodeList = DataNode.getChildNodes();
             for(int i = 0; i<nodeList.getLength(); i++)
@@ -248,8 +248,6 @@ public class AccountData {
     public static String Path = "a.xml";
     public Settings Settings = new Settings();
     public Nodes Nodes = new Nodes();
-    public String FirstName;
-    public String LastName;
     public List<String> Learned = new ArrayList<>();
     public List<String> UnLearned = new ArrayList<>();
     public List<InLearning> InLearning = new ArrayList<>();

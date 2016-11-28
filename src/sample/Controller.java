@@ -10,14 +10,25 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
 
 public class Controller implements Initializable {
+
 
     public class mapData
     {
@@ -29,9 +40,6 @@ public class Controller implements Initializable {
             this.password = password;
         }
     }
-
-    @FXML
-    private Button btn;
 
     @FXML
     private TextField LoginText;
@@ -53,7 +61,6 @@ public class Controller implements Initializable {
 
     public void click(ActionEvent actionEvent) throws Exception {
         DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-
         Document document = documentBuilder.parse(AccountData.Path);
         NodeList nodes = document.getElementsByTagName("ACCOUNT");
         Map<String, mapData> map = new HashMap<>();
@@ -68,6 +75,25 @@ public class Controller implements Initializable {
             new MainApp(document, map.get(login).id);
         }
         else showDialog();
+    }
+
+    public void register(ActionEvent actionEvent) throws Exception {
+        if(PasswordText.getText() == "" || LoginText.getText() == "") return;
+        DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+        Document document = documentBuilder.parse(AccountData.Path);
+        Element node = document.createElement("ACCOUNT");
+        node.setAttribute("Login", LoginText.getText());
+        node.setAttribute("Pass", PasswordText.getText());
+        Element InLearningNode = document.createElement("InLearning");
+        Element LearnedNode = document.createElement("Learned");
+        node.appendChild(InLearningNode);
+        node.appendChild(LearnedNode);
+        document.getFirstChild().appendChild(node);
+        Transformer t= TransformerFactory.newInstance().newTransformer();
+        //t.setOutputProperty(OutputKeys.METHOD, "xml");
+        //t.setOutputProperty(OutputKeys.INDENT, "yes");
+        t.transform(new DOMSource(document), new StreamResult(new FileOutputStream(AccountData.Path)));
+        new MainApp(document, document.getElementsByTagName("ACCOUNT").getLength()-1);
     }
 
     private void showDialog() {

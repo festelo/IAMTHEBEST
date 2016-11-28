@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<XML>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><XML>
     <Settings>
         <Tests>2</Tests>
         <Words>10</Words>
@@ -219,23 +218,8 @@
             <Translate>Рука</Translate>
         </Word>
     </GlobalDictionary>
-
     <ACCOUNT FirstName="Vladimir" LastName="Pavlov" Login="name" Pass="pass">
-        <Learned>
-            <Word>Window</Word>
-        <Word>Nurse</Word>
-</Learned>
-        <InLearning>
-<Word Stage="0">Able</Word>
-<Word Stage="0">Accountant</Word>
-<Word Stage="0">Father</Word>
-<Word Stage="0">Colleague</Word>
-<Word Stage="0">Cousin</Word>
-<Word Stage="0">Artist</Word>
-<Word Stage="0">Nephew</Word>
-<Word Stage="0">Niece</Word>
-<Word Stage="0">Acquaintance</Word>
-<Word Stage="0">Grandfather</Word>
-</InLearning>
+        <Learned><Word>Window</Word><Word>Nurse</Word><Word>Goodbye</Word></Learned>
+        <InLearning><Word Stage="0">Lawyer</Word><Word Stage="0">Artist</Word><Word Stage="0">Actor</Word><Word Stage="0">Student</Word><Word Stage="0">Guy</Word><Word Stage="0">Neighbor</Word><Word Stage="0">Woman</Word><Word Stage="0">Mummy</Word><Word Stage="0">Teacher</Word><Word Stage="0">Guest</Word></InLearning>
     </ACCOUNT>
-</XML>
+<ACCOUNT Login="qwe1" Pass="qwe1"><InLearning><Word Stage="0">Pupil</Word><Word Stage="0">Please</Word><Word Stage="0">Child</Word><Word Stage="0">Doctor</Word><Word Stage="0">Uncle</Word><Word Stage="0">Student</Word><Word Stage="0">Say</Word><Word Stage="0">Hi</Word><Word Stage="0">Hello</Word><Word Stage="0">Arm</Word></InLearning><Learned/></ACCOUNT></XML>
