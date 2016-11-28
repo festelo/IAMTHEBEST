@@ -1,16 +1,43 @@
 package Stata;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+import mainApp.MainApp;
+import mainApp.TableData;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static tests.Test1.MainTest.onClosing;
 
 public class MainStata extends Application {
+
+    @FXML
+    public ListView<String> rightAnswers;
+
+    @FXML
+    public ListView<String> wrongAnswers;
+
+    @FXML
+    public ListView<String> rightAnswersWord;
+    @FXML
+    public ListView<String> rightAnswersTranslate;
+    @FXML
+    public ListView<String> wrongAnswersWord;
+    @FXML
+    public ListView<String> wrongAnswersTranslate;
+
+    public ListView<String> asd;
+    public ListView<String> dsa;
 
     private Stage currentStage;
     private Stage primaryStageMain;
@@ -27,6 +54,8 @@ public class MainStata extends Application {
         currentStage.setOnCloseRequest(event -> onClosing(primaryStageMain));
         currentStage.setResizable(false);
         currentStage.showAndWait();
+
+        drawStata();
     }
 
     public  void Close() {
@@ -37,5 +66,14 @@ public class MainStata extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+    }
+
+    public void drawStata() {
+        System.out.println(MainApp.ACCOUNT.UnSuccessfulList[0]);
+        //rightAnswers.setCellFactory(new PropertyValueFactory<MainApp.ACCOUNT.UnSuccessfulList[0], MainApp.ACCOUNT.UnSuccessfulList[0]>);
+        rightAnswersWord.setCellValueFactory();
+    }
+
+    public void initialize(URL location, ResourceBundle resources) {
     }
 }

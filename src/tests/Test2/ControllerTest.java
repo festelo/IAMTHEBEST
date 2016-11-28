@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.*;
 
 public class ControllerTest implements Initializable {
+
     public ListView<String> listView;
     public Label label;
     MainTest Main;
@@ -66,5 +67,8 @@ public class ControllerTest implements Initializable {
                     Main.Close();
                 }
         }
+
     }
+
+
 }

@@ -221,6 +221,6 @@
     </GlobalDictionary>
     <ACCOUNT FirstName="Vladimir" LastName="Pavlov" Login="name" Pass="pass">
         <Learned/>
-    <InLearning><Word Stage="0">Pass by</Word><Word Stage="0">Spin (spun) round</Word><Word Stage="0">Window</Word><Word Stage="0">Above all</Word><Word Stage="0">Sand</Word><Word Stage="0">Brushwood</Word><Word Stage="0">Sack</Word><Word Stage="0">Take no notice</Word><Word Stage="0">Stomach</Word><Word Stage="0">Expose</Word></InLearning>
+    <InLearning><Word Stage="0">Pass by</Word><Word Stage="1">Spin (spun) round</Word><Word Stage="0">Window</Word><Word Stage="1">Above all</Word><Word Stage="0">Sand</Word><Word Stage="0">Brushwood</Word><Word Stage="1">Sack</Word><Word Stage="1">Take no notice</Word><Word Stage="0">Stomach</Word><Word Stage="0">Expose</Word></InLearning>
 </ACCOUNT>
 <ACCOUNT Login="qwe1" Pass="qwe1"><InLearning/><Learned/></ACCOUNT></XML>

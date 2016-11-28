@@ -81,6 +81,8 @@ public class ControllerTest implements Initializable {
     }
 
     public void clickOK(ActionEvent actionEvent) throws IOException, TransformerException {
+
+
             for (TableData td : Result)
             {
                 if (!MainApp.ACCOUNT.WordBase.get(td.getWord()).contains(td.getTranslates()))
