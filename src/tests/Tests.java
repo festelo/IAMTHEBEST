@@ -93,10 +93,10 @@ public class Tests {
     public void CheckLearning(MainApp main) throws TransformerException, FileNotFoundException {
         List<AccountData.InLearning> completes = GetCompletes();
         List<String> strings = completes.stream().map(s -> s.getValue()).collect(Collectors.toList());
-        ACCOUNT.RemoveFromInLearning(completes);
-        ACCOUNT.AddIn(strings, "Learned");
-        List<String> AddIn = ACCOUNT.GetRandomUnLearnedWords(ACCOUNT.Settings.Words - ACCOUNT.InLearning.size());
-        ACCOUNT.AddIn(AddIn, "InLearning");
+        ACCOUNT.removeFromInLearning(completes);
+        ACCOUNT.addIn(strings, "Learned");
+        List<String> AddIn = ACCOUNT.getRandomUnLearnedWords(ACCOUNT.Settings.Words - ACCOUNT.InLearning.size());
+        ACCOUNT.addIn(AddIn, "InLearning");
         ACCOUNT.UnLearned.removeAll(AddIn);
         main.Controller.refresh();
     }

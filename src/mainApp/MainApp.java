@@ -18,7 +18,7 @@ public class MainApp
     public MainApp(Document doc, int ID) throws Exception
     {
         ACCOUNT = new AccountData();
-        ACCOUNT.Nodes.Parse(doc, ID);
+        ACCOUNT.Nodes.parse(doc, ID);
         primaryStageMain = new Stage();
         Controller controller = new Controller(this);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mainApp.fxml"));

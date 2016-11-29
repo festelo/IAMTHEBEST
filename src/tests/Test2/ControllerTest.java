@@ -36,8 +36,8 @@ public class ControllerTest implements Initializable
         if(Main.Test == 1) {
             if (MainApp.ACCOUNT.WordBase.get(Main.Word).contains(selectedItem))
             {
-                MainApp.ACCOUNT.InLearningGet(Main.Word).upStage(false);
-                for(AccountData.InLearning s : MainApp.ACCOUNT.InLearningGet(Main.Translates))
+                MainApp.ACCOUNT.inLearningGet(Main.Word).upStage(false);
+                for(AccountData.InLearning s : MainApp.ACCOUNT.inLearningGet(Main.Translates))
                 {
                     s.upStage(false);
                 }
@@ -59,8 +59,8 @@ public class ControllerTest implements Initializable
         {
             if(MainApp.ACCOUNT.WordBase.get(selectedItem).contains(Main.Word))
             {
-                MainApp.ACCOUNT.InLearningGet(selectedItem).upStage(false);
-                for(AccountData.InLearning s : MainApp.ACCOUNT.InLearningGet(Main.Translates))
+                MainApp.ACCOUNT.inLearningGet(selectedItem).upStage(false);
+                for(AccountData.InLearning s : MainApp.ACCOUNT.inLearningGet(Main.Translates))
                 {
                     s.upStage(false);
                 }

@@ -103,7 +103,7 @@ public class ControllerTest implements Initializable
             }
             else
             {
-                MainApp.ACCOUNT.InLearningGet(td.getWord()).upStage(false);
+                MainApp.ACCOUNT.inLearningGet(td.getWord()).upStage(false);
                 MainApp.ACCOUNT.SuccessfulList[0].add(td.getWord());
             }
         }

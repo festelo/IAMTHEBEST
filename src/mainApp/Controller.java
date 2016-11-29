@@ -123,9 +123,9 @@ public class Controller implements Initializable
     //Кнопка обновления
     public void refrBtn(ActionEvent actionEvent) throws TransformerException, FileNotFoundException
     {
-        ACCOUNT.RemoveFromInLearning(ACCOUNT.InLearning);
-        List<String> AddIn = ACCOUNT.GetRandomUnLearnedWords(ACCOUNT.Settings.Words);
-        ACCOUNT.AddIn(AddIn, "InLearning");
+        ACCOUNT.removeFromInLearning(ACCOUNT.InLearning);
+        List<String> AddIn = ACCOUNT.getRandomUnLearnedWords(ACCOUNT.Settings.Words);
+        ACCOUNT.addIn(AddIn, "InLearning");
         refresh();
     }
 

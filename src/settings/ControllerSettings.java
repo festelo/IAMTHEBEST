@@ -36,7 +36,7 @@ public class ControllerSettings implements Initializable
     {
         int Words = Integer.parseInt(WordsTF.getText());
         int Tests = Integer.parseInt(TestsTF.getText());
-        MainApp.ACCOUNT.Settings.Save(Tests, Words);
+        MainApp.ACCOUNT.Settings.save(Tests, Words);
         mainSettings.Close();
     }
 }

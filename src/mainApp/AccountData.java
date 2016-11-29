@@ -36,11 +36,11 @@ public class AccountData
         public int Words;
         public Nodes Nodes = new Nodes();
 
-        public void Save(int Tests, int Words) throws TransformerException, FileNotFoundException
+        public void save(int Tests, int Words) throws TransformerException, FileNotFoundException
         {
             this.Tests = Tests;
             this.Words = Words;
-            Nodes.Save(Tests, Words);
+            Nodes.save(Tests, Words);
         }
 
         public class Nodes
@@ -48,7 +48,7 @@ public class AccountData
             public Node TestsNode;
             public Node WordsNode;
 
-            public void Parse(Document document) {
+            public void parse(Document document) {
                 NodeList settings = document.getElementsByTagName("Settings").item(0).getChildNodes();
                 for(int i = 0; i<settings.getLength();i++)
                 {
@@ -70,7 +70,7 @@ public class AccountData
                 }
             }
 
-            public void Save(int TestsSave, int WordsSave) throws TransformerException, FileNotFoundException {
+            public void save(int TestsSave, int WordsSave) throws TransformerException, FileNotFoundException {
                 TestsNode.getFirstChild().setNodeValue(Integer.toString(TestsSave));
                 WordsNode.getFirstChild().setNodeValue(Integer.toString(WordsSave));
                 THIS.Nodes.saveXML();
@@ -95,10 +95,10 @@ public class AccountData
         }
 
         //Парс слов из BD.xml
-        public void Parse(Document Document, int ID)
+        public void parse(Document Document, int ID)
         {
             document = Document;
-            Settings.Nodes.Parse(document);
+            Settings.Nodes.parse(document);
             Node DataNode = Document.getElementsByTagName("ACCOUNT").item(ID);
             Node DictionaryNode = Document.getElementsByTagName("GlobalDictionary").item(0);
             NodeList nodeList = DictionaryNode.getChildNodes();
@@ -127,7 +127,7 @@ public class AccountData
             //LastName = nmap.getNamedItem("LastName").getNodeValue();
 
             nodeList = DataNode.getChildNodes();
-            for(int i = 0; i < nodeList.getLength(); i++)
+            for (int i = 0; i < nodeList.getLength(); i++)
             {
                 switch (nodeList.item(i).getNodeName())
                 {
@@ -153,7 +153,7 @@ public class AccountData
                             if (subNodeList.item(j).getNodeName().equals("Word"))
                             {
                                 InLearning inlearn = new InLearning();
-                                inlearn.Nodes.Parse(subNodeList.item(j));
+                                inlearn.Nodes.parse(subNodeList.item(j));
                                 InLearning.add(inlearn);
                             }
                         }
@@ -164,7 +164,7 @@ public class AccountData
         }
 
         //Обозначить слово как выученное
-        public void AddInLearned(List<String> Words) throws TransformerException, FileNotFoundException
+        public void addInLearned(List<String> Words) throws TransformerException, FileNotFoundException
         {
             for(String s: Words)
             {
@@ -176,7 +176,7 @@ public class AccountData
         }
 
         //Убрать слово из изученных
-        public void RemoveFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException
+        public void removeFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException
         {
             for(InLearning s : inLearning)
                 InLearningNode.removeChild(s.Nodes.node);
@@ -185,7 +185,7 @@ public class AccountData
     }
 
 
-    public void AddIn(List<String> Words, String TypeName) throws TransformerException, FileNotFoundException
+    public void addIn(List<String> Words, String TypeName) throws TransformerException, FileNotFoundException
     {
         if(TypeName == "InLearning")
         {
@@ -194,7 +194,7 @@ public class AccountData
             for(InLearning s : inLearning)
             {
                 InLearningMap.put(s.Value, s);
-                s.Nodes.AddIn(false);
+                s.Nodes.addIn(false);
             }
             InLearning.addAll(inLearning);
             Nodes.saveXML();
@@ -202,21 +202,21 @@ public class AccountData
         else if (TypeName == "Learned")
         {
             Learned.addAll(Words);
-            Nodes.AddInLearned(Words);
+            Nodes.addInLearned(Words);
         }
     }
 
     //Убрать слово из изучаемых
-    public void RemoveFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException
+    public void removeFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException
     {
         for(InLearning i : inLearning)
             InLearningMap.remove(i.Value);
-        Nodes.RemoveFromInLearning(inLearning);
+        Nodes.removeFromInLearning(inLearning);
         ACCOUNT.InLearning.removeAll(inLearning);
     }
 
     //Перемешивание слов
-    public List<String> GetRandomUnLearnedWords(int size)
+    public List<String> getRandomUnLearnedWords(int size)
     {
         List<String> UnLearned = this.UnLearned;
         List<String> AddInLearning = new ArrayList<>();
@@ -242,13 +242,13 @@ public class AccountData
         public void upStage() throws TransformerException, FileNotFoundException
         {
             this.Stage++;
-            Nodes.SaveStage(Stage, true);
+            Nodes.saveStage(Stage, true);
         }
 
         public void upStage(boolean SAVE) throws TransformerException, FileNotFoundException
         {
             this.Stage++;
-            Nodes.SaveStage(Stage, SAVE);
+            Nodes.saveStage(Stage, SAVE);
         }
 
         public int getStage() { return Stage; }
@@ -257,13 +257,13 @@ public class AccountData
         {
             public Node node;
 
-            public void SaveStage(int Stage, boolean SAVE) throws TransformerException, FileNotFoundException
+            public void saveStage(int Stage, boolean SAVE) throws TransformerException, FileNotFoundException
             {
                 node.getAttributes().getNamedItem("Stage").setNodeValue(Integer.toString(Stage));
                 if(SAVE) THIS.Nodes.saveXML();
             }
 
-            public void Parse(Node node)
+            public void parse(Node node)
             {
                 this.node = node;
                 Stage = Integer.parseInt(node.getAttributes().getNamedItem("Stage").getNodeValue());
@@ -271,7 +271,7 @@ public class AccountData
                 InLearningMap.put(Value, THISil);
             }
 
-            public void AddIn(Boolean SAVE) throws TransformerException, FileNotFoundException
+            public void addIn(Boolean SAVE) throws TransformerException, FileNotFoundException
             {
                     Element s = THIS.Nodes.document.createElement("Word");
                     s.appendChild(THIS.Nodes.document.createTextNode(Value));
@@ -283,12 +283,12 @@ public class AccountData
         }
     }
 
-    public InLearning InLearningGet(String Word)
+    public InLearning inLearningGet(String Word)
     {
         return InLearningMap.get(Word);
     }
 
-    public List<InLearning> InLearningGet(List<String> Word)
+    public List<InLearning> inLearningGet(List<String> Word)
     {
         List<InLearning> inLearningList = new ArrayList<>();
         for(String s : Word)
