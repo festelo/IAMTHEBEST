@@ -39,7 +39,7 @@ public class AccountData
             {
                 Element s = THIS.Nodes.document.createElement("Word");
                 s.appendChild(THIS.Nodes.document.createTextNode(Value));
-                THIS.Nodes.InLearningNode.appendChild(s);
+                THIS.Nodes.LearnedNode.appendChild(s);
                 if(SAVE)THIS.Nodes.saveXML();
                 this.node = s;
             }
