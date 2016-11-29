@@ -15,11 +15,40 @@ import static mainApp.MainApp.ACCOUNT;
 //Информация о пользователе
 public class AccountData
 {
-
+    public class Learned
+    {
+        String Value;
+        Nodes Nodes = new Nodes();
+        public Learned(String Word, Node node)
+        {
+            this.Value = Word;
+            this.Nodes.node = node;
+        }
+        public Learned(String Word)
+        {
+            this.Value = Word;
+        }
+        public void Remove() throws TransformerException, FileNotFoundException {
+            THIS.Nodes.removeFromLearned(this);
+            Learned.remove(this);
+        }
+        public class Nodes
+        {
+            Node node;
+            public void addIn(Boolean SAVE) throws TransformerException, FileNotFoundException
+            {
+                Element s = THIS.Nodes.document.createElement("Word");
+                s.appendChild(THIS.Nodes.document.createTextNode(Value));
+                THIS.Nodes.InLearningNode.appendChild(s);
+                if(SAVE)THIS.Nodes.saveXML();
+                this.node = s;
+            }
+        }
+    }
     public static String Path = "BD.xml";
     public Settings Settings = new Settings();
     public Nodes Nodes = new Nodes();
-    public List<String> Learned = new ArrayList<>();
+    public List<Learned> Learned = new ArrayList<>();
     public List<String> UnLearned = new ArrayList<>();
     public List<InLearning> InLearning = new ArrayList<>();
     private AccountData THIS = this;
@@ -139,7 +168,7 @@ public class AccountData
                         {
                             if (subNodeList.item(j).getNodeName().equals("Word"))
                             {
-                                Learned.add(subNodeList.item(j).getFirstChild().getNodeValue());
+                                Learned.add(new Learned(subNodeList.item(j).getFirstChild().getNodeValue(), subNodeList.item(j)));
                             }
                         }
                         break;
@@ -164,22 +193,24 @@ public class AccountData
         }
 
         //Обозначить слово как выученное
-        public void addInLearned(List<String> Words) throws TransformerException, FileNotFoundException
-        {
-            for(String s: Words)
-            {
-                Element Word = document.createElement("Word");
-                Word.appendChild(document.createTextNode(s));
-                LearnedNode.appendChild(Word);
-            }
-            saveXML();
-        }
 
         //Убрать слово из изученных
         public void removeFromInLearning(List<InLearning> inLearning) throws TransformerException, FileNotFoundException
         {
             for(InLearning s : inLearning)
                 InLearningNode.removeChild(s.Nodes.node);
+            saveXML();
+        }
+        public void removeFromLearned(List<Learned> Learned) throws TransformerException, FileNotFoundException
+        {
+            for(Learned s : Learned)
+                LearnedNode.removeChild(s.Nodes.node);
+            saveXML();
+        }
+
+        public void removeFromLearned(Learned Learned) throws TransformerException, FileNotFoundException
+        {
+            LearnedNode.removeChild(Learned.Nodes.node);
             saveXML();
         }
     }
@@ -189,7 +220,7 @@ public class AccountData
     {
         if(TypeName == "InLearning")
         {
-            List<InLearning> inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
+            List<InLearning> inLearning;
             inLearning = Words.stream().map(s -> new InLearning(s)).collect(Collectors.toList());
             for(InLearning s : inLearning)
             {
@@ -201,8 +232,15 @@ public class AccountData
         }
         else if (TypeName == "Learned")
         {
-            Learned.addAll(Words);
-            Nodes.addInLearned(Words);
+
+            List<Learned> learned;
+            learned = Words.stream().map(s -> new Learned(s)).collect(Collectors.toList());
+            for(Learned s : learned)
+            {
+                s.Nodes.addIn(false);
+            }
+            Learned.addAll(learned);
+            Nodes.saveXML();
         }
     }
 

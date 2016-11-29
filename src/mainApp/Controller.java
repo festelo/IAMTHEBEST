@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 
 import javax.xml.transform.TransformerException;
 import java.io.FileNotFoundException;
@@ -97,7 +99,7 @@ public class Controller implements Initializable
     public void refresh()
     {
         InLearningTable.setItems(TableData.ToTableData.ToTableDataListFromInLearning(MainApp.ACCOUNT.InLearning));
-        LearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.Learned));
+        LearnedTable.setItems(TableData.ToTableData.ToTableDataListFromLearned(MainApp.ACCOUNT.Learned));
         UnLearnedTable.setItems(TableData.ToTableData.ToTableDataList(MainApp.ACCOUNT.UnLearned));
     }
 
@@ -136,4 +138,20 @@ public class Controller implements Initializable
     }
 
 
+    public void learnedClicked(MouseEvent mouseEvent) throws TransformerException, FileNotFoundException {
+        if(mouseEvent.getButton().equals(MouseButton.PRIMARY)){
+            if(mouseEvent.getClickCount() == 2){
+                TableData td = (TableData) LearnedTable.getSelectionModel().getSelectedItem();
+                if(td != null) {
+                    AccountData.Learned object;
+                    for(AccountData.Learned i : ACCOUNT.Learned)
+                    {
+                        if(Objects.equals(i.Value, td.getWord())) { i.Remove(); break; }
+                    }
+                    ACCOUNT.UnLearned = getUnlearned();
+                    refresh();
+                }
+            }
+        }
+    }
 }

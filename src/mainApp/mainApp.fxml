@@ -25,7 +25,7 @@
     <children>
         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="0" mnemonicParsing="false" onAction="#stataBtn" prefHeight="25.0" prefWidth="193.0" text="Statistic" GridPane.columnSpan="1" />
         <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" mnemonicParsing="false" onAction="#testBtn" prefHeight="25.0" prefWidth="193.0" text="Testing" GridPane.columnSpan="1" />
-        <TableView fx:id="LearnedTable" prefHeight="200.0" GridPane.rowIndex="2">
+        <TableView fx:id="LearnedTable" onMouseClicked="#learnedClicked" prefHeight="200.0" GridPane.rowIndex="2">
             <columns>
                 <TableColumn fx:id="LearnedTableWord" prefWidth="75.0" text="Word" />
                 <TableColumn fx:id="LearnedTableTranslate" prefWidth="124.0" text="Translates" />
